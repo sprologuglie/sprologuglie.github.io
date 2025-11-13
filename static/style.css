@@ -1,0 +1,941 @@
+/* === VARIABILI CSS (Custom Properties) === */
+:root {
+    /* Colori */
+    --color-primary: #8ea376; /* Verde/Menta principale (header text, bottoni) */
+    --color-secondary: #e8ded5; /* Sfondo Header e Footer */
+    --color-text-light: #000000; /* Testo chiaro (Body, Home Cards) */
+    --color-text-dark: #000000; /* Testo scuro (Footer, elementi a contrasto) */
+    --color-whatsapp: #25d366; /* Verde WhatsApp */
+    --color-whatsapp-hover: #20b358;
+    --color-dropdown-hover: #f0f9ff51;
+    --color-dropdown-border: rgba(255, 255, 255, 0.2);
+
+    /* Sfondi Trasparenti */
+    --bg-blur-card: #f0f0f01b; /* Sfondo semi-trasparente per le card */
+
+    /* Ombre */
+    --shadow-header: 0 2px 8px rgba(0,0,0,0.05);
+    --shadow-logo: 0 2px 6px rgba(0,0,0,0.1);
+    --shadow-dropdown: 0 8px 16px rgba(0,0,0,0.1);
+    --shadow-card-md: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --shadow-card-lg: 0 6px 16px rgba(0, 0, 0, 0.15); /* Hover card */
+    --shadow-whatsapp: 0 2px 5px rgba(0, 0, 0, 0.3);
+    --shadow-whatsapp-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* === BASE STYLES === */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Inter", Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    /* Layout & Positioning */
+    display: flex;
+    flex-direction: column;    
+    min-height: 100vh;
+    
+    /* Background */
+    background-image: url("images/sfondo4.webp");
+    background-size: 100% auto;    
+    /* FIX: Immagine sotto l'header (circa 80px di altezza header) */
+    background-position: center 10px; 
+    background-color: var(--color-primary);
+    
+    /* Typography & Color */
+    font-weight: 500;
+    color: var(--color-text-light);
+}
+
+main {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* === HEADER (Intestazione) === */
+
+
+.site-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-header);
+    border-radius: 12px;
+    margin: 10px;
+    z-index: 100;
+    position: relative;
+}
+.logo {
+    height: 50px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-logo);
+    transition: transform 0.3s ease;
+}
+
+.logo-line {
+    font-size: 40px;
+    margin: 0 0.5rem;
+}
+
+.therapyou {
+    font-family: "Collier";
+    align-self: left;
+}
+
+.therapyou a {
+    text-decoration: none;
+}
+
+.therapyou h1, .therapyou h4 {
+    color: var(--color-text-dark);
+    font-family: "Collier";
+    font-weight: 900;
+    margin: 0;
+    line-height: 1;
+}
+
+.therapyou h1 {
+    letter-spacing: 19px;
+}
+
+.main-nav {
+    position: relative;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Social Icons */
+.social a {
+    position: relative;
+    color: var(--color-text-dark);
+    margin: 0 10px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+/* Aggiungi questo nuovo blocco dopo .social a:hover */
+.social a i { /* Agisci sull'elemento <i> all'interno del link */
+    display: inline-block; /* Necessario per applicare transform e box-shadow */
+    transition: transform 0.3s ease;
+}
+
+.social a:hover i, .dropbtn:hover, .logo:hover, .top-link:hover { 
+    transform: translateY(-2px); 
+}
+
+
+
+
+/* ---  MENU OFF-CANVAS (Side Menu) --- */
+
+/* --- ACCESSIBILITÀ: Nasconde il Focus Ring se l'utente usa il Mouse --- */
+
+/* La classe mouse-user viene aggiunta al body da JS dopo il primo mouse-move */
+.mouse-user :focus {
+    /* Rimuove completamente l'outline/box-shadow del focus */
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* ECCEZIONE: Se l'utente usa TAB (ovvero non ha mosso il mouse di recente) */
+/* Riapplica il focus personalizzato solo per la navigazione da tastiera */
+body:not(.mouse-user) #menu-toggle-btn:focus, 
+body:not(.mouse-user) .close-btn:focus, 
+body:not(.mouse-user) .menu-links a:focus, 
+body:not(.mouse-user) .menu-social a:focus {
+    /* Ri-usa il tuo stile di focus personalizzato (solo per TAB) */
+    box-shadow: 0 0 0 3px var(--color-text-dark), 
+                0 0 0 5px white; 
+    border-radius: 3px;
+}
+
+/* Base: menu nascosto a destra */
+
+.dropbtn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.dropbtn:hover{
+    transform: translateY(-3px);
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -1000px; /* Nasconde il menu fuori dallo schermo */
+    width: 280px;
+    height: 85%;
+    padding: 20px;
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(25px); /* Usa il tuo colore principale per contrasto */
+    border-radius: 15px;
+    margin: 10px;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
+    z-index: 1500; /* Assicurati che sia sopra ogni cosa */
+    overflow-y: auto;
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Effetto scorrimento */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 60px;
+}
+
+/* Stato Attivo: menu visibile */
+.side-menu.active {
+    right: 0;
+}
+
+/* Pulsante Chiudi */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Stili Link di Navigazione */
+.menu-links a {
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(5px);
+    color: var(--color-text-dark);
+    padding: 12px 10px;
+    text-decoration: none;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-bottom: 1px solid var(--color-dropdown-hover);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border-radius: 15px;
+    margin-bottom: 2px;
+}
+
+
+
+.menu-links a:hover, .submenu-container:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-lg);
+}
+
+/* Stili Social all'interno del menu */
+.menu-social {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    border-top: 2px solid var(--color-text-dark);
+    margin-top: 20px;
+}
+
+.menu-social a {
+    color: var(--color-text-dark);
+    font-size: 1rem;
+    padding: 10px;
+    text-align: left;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.menu-social a:hover {
+    transform: translateY(-3px);
+}
+.menu-social i {
+    font-size: 1.3rem;
+    width: 30px; /* Per allineare il testo */
+}
+
+/* Rimuovi scroll dal body quando il menu è attivo */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Assicurati che il focus sia sempre visibile */
+.menu-links a:focus,
+.menu-social a:focus,
+.close-btn:focus,
+#menu-toggle-btn:focus {
+    /* Rimuove il focus di default del browser e ne crea uno personalizzato */
+    outline: 0; 
+    
+    /* Stile personalizzato per l'anello di focus */
+    box-shadow: 0 0 0 3px var(--color-text-dark), /* Bordo esterno scuro */
+                0 0 0 5px white; /* Anello interno bianco */
+    border-radius: 3px; /* Opzionale: aggiunge angoli arrotondati */
+}
+
+/* --- STILI SOTTO-MENU OFF-CANVAS --- */
+.submenu-container {
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(5px);
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--color-dropdown-hover);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border-radius: 15px;
+    margin-bottom: 1.8px;
+}
+
+.submenu-container i{
+    font-size: 0.9rem;
+}
+
+
+
+/* Stile del pulsante che apre il sotto-menu */
+.submenu-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text-dark);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-align: left;
+    padding: 0;
+}
+
+
+
+
+/* Contenitore dei link interni (inizialmente chiuso) */
+.submenu-content {
+    /* Impostiamo l'altezza su 0 per l'animazione smooth-toggle (gestita da JS) */
+    height: 0; 
+    overflow: hidden;
+    transition: height 0.3s ease-in-out; 
+    padding-left: 10px; /* Indentazione per i link interni */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stile dei link interni al sotto-menu */
+.submenu-content a {
+    padding: 10px 10px; /* Padding ridotto */
+    font-size: 1rem;
+    font-weight: 400; /* Peso ridotto */
+    border-bottom: none; /* Rimuove il bordo per un aspetto più pulito */
+    margin-bottom: 2px;
+}
+
+
+
+/* Stili per il focus accessibile (aggiungere anche qui se necessario) */
+.submenu-toggle:focus {
+     box-shadow: 0 0 0 3px var(--color-text-dark), 0 0 0 5px white; 
+     border-radius: 3px;
+}
+
+/* === MEDIA QUERY: Mobile/Tablet (max-width: 900px) === */
+@media (max-width: 800px) {
+    
+    body {
+        background-position: center 5px;
+    }
+
+    main {
+        padding: 0px;
+    }
+
+    .site-header {
+        padding: 10px 15px;
+        flex-wrap: nowrap;
+    }
+
+    .logo {
+        height: 45px; 
+    }
+
+    .therapyou {
+        position: static;
+        transform: none;
+        margin-left: 10px; 
+        margin-right: auto;
+        white-space: nowrap; 
+        flex-shrink: 1; 
+        min-width: 0;
+    }
+    
+    .therapyou h1 {
+        letter-spacing: 6px; 
+        font-size: 1.4rem
+    }
+    
+    .therapyou h4 {
+        letter-spacing: 0.3px;
+        font-size: 0.5rem;
+    }
+    
+    .main-nav {
+        gap: 5px; 
+    }
+
+
+    .social {
+        display: none;
+    }
+
+
+    .dropbtn {
+            font-size: 1.5rem;
+            padding: 5px;
+    }
+
+
+    .side-menu {
+        width: 85%;
+    }
+}
+
+
+
+/* === FOOTER (Piè di pagina) === */
+
+.site-footer {
+    padding: 10px;
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    margin: 15px;
+    text-align: center;
+    font-weight: 300;
+    color: var(--color-text-dark);
+}
+
+.footer-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    text-align: left;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.empty {
+    padding: 1px;
+}
+
+@media (max-width: 800px) {
+  .footer-box {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 0;
+  }
+  .footer-last{
+    font-size: 0.8rem;
+  }
+}
+
+
+
+/* Whatsapp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-whatsapp);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: var(--shadow-whatsapp);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    text-decoration: none;
+    line-height: 1;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-whatsapp-hover);
+    background-color: var(--color-whatsapp-hover);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* === HOME PAGE STYLES === */
+
+.top-container, .main-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-column {
+    align-self: center;
+}
+
+/* Stili generali per le box/card della Home Page e Contatti */
+.top-title, .toggle-container, .main-content, .contact-location, .contact-container { 
+    padding: 25px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--shadow-card-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+}
+
+/* Hover Effect */
+.top-title:hover, .toggle-container:hover, .contact-location:hover, .contact-container:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-lg);
+}
+
+.top-title h2, .toggle-container h3, .main-content h2, .contact-location h2, .contact-container h2 {
+    margin-bottom: 0.5em;
+    font-family: "Collier", sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+}
+
+#servizi-top i{
+    font-size: 2rem;
+    margin-right: 7px;
+}
+ 
+
+#presentazione {
+    display: grid;
+    grid-template-columns: 100px auto 100px;
+    margin: 0 auto;
+    width: auto;
+    align-items: center;
+    width: 100%;
+}
+
+#last-logo-home-small {
+    justify-self:right
+}
+
+.logo-home-small{
+    width: 100px;
+}
+
+.top-link {
+    display: block;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    text-transform: uppercase;
+    color: var(--color-text-dark);
+}
+
+/* Toggle Container Specifics */
+.toggle-container {
+    cursor: pointer;
+}
+
+
+.toggle-container img, .top-container img, .main-content img {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.toggle-container img, .main-content img {    
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-position: center;
+}
+
+.toggle-text, .main-content p {
+  font-size: 1rem; 
+  line-height: 1.6; 
+  color: var(--color-text-dark); 
+  text-align: justify;
+  font-weight: 400; 
+}
+
+
+.toggle-container summary {
+    font-weight: bold;
+    list-style: none;
+}
+
+.toggle-container summary::-webkit-details-marker {
+    display: none; 
+}
+
+.toggle-container p {
+    margin-top: 10px;
+}
+
+.toggle-text {
+    transition: height 0.3s ease-in-out; 
+    height: 0; 
+    overflow: hidden; 
+}
+.toggle-container[open] .toggle-text {
+    height: auto; 
+    }
+
+.toggle-container i {
+    font-size: 60px;
+    margin: 15px;
+}
+.icon { 
+    text-decoration: none;
+    color: var(--color-text-light); 
+    font-size: 60px;
+    
+    transition: transform 0.3s ease;
+    display: inline-block;
+    margin: 15px; 
+}
+.icon p {
+    font-size: small;
+
+}
+.icon:hover {
+    transform: translateY(-5px);
+}
+
+#fra {
+    order: 2;
+}
+
+#fra-text {
+    order: 1;
+}
+
+@media (max-width: 800px) {  
+    .logo-home-small {    
+    display: none;
+    }
+
+    #presentazione {
+        display: block;
+    }
+
+    #logo-home-big {
+        width: 100%;
+    }
+
+    #fra {
+        order: 1;
+    }
+    #fra-text {
+        order: 2;
+    }
+}
+
+
+/* Nasconde inizialmente tutte le card che devono apparire con l'animazione */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(20px); /* Leggero spostamento verso il basso */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: 0.1s; /* Leggero ritardo per creare un effetto a cascata */
+}
+
+/* Stato finale: Visibile */
+.reveal-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toggle-container[open] summary ~ * {
+    /* Rende il contenuto visibile e applica l'animazione */
+    animation: sweep 0.5s ease-in-out;
+}
+
+/* Definisce l'animazione */
+@keyframes sweep {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Rendi il testo non immediatamente visibile (per la transizione) */
+.toggle-text {
+    overflow: hidden;
+}
+
+.just {
+    text-align: justify;
+}
+
+
+
+
+
+
+
+
+
+
+/* === CONTATTI PAGE STYLES === */
+
+.contact-location, .contact-container {
+    max-width: 90%;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+
+.whatsapp-contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: flex-start;
+}
+
+
+/* Maps Button & Whatsapp Buttons */
+.maps-btn, .whatsapp-btn {
+    display: inline-block;
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(15px);
+    color: var(--color-text-light);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 10px 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;    
+}
+
+.maps-btn {
+    margin-top: 10px;
+}
+
+.maps-btn:hover, .whatsapp-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-card-lg);
+}
+
+.map-container {
+    margin: 0 auto;
+    margin-top: 1em;
+    position: relative;
+    width: 90%;
+    padding-bottom: 42.85%;
+    height: 0; 
+    overflow: hidden;
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    border-radius: 15px;
+}
+
+/* Media Query per PC (min-width: 769px) */
+@media (min-width: 800px) {
+
+    .map-container {
+        max-width: 700px;
+        padding-bottom: 0; 
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .contact-location, .contact-container {
+    max-width: 1000px;
+    }
+    
+}
+
+/* === MEDIA QUERY: Mobile/Tablet (max-width: 900px) === */
+@media (max-width: 800px) {
+    
+    /* ... (I tuoi stili esistenti per l'header, ecc.) ... */
+
+    /* Nuovo stile per impilare i pulsanti WhatsApp */
+    .whatsapp-contact {
+        display: flex; /* Passa da grid a flex */
+        flex-direction: column; /* Forza gli elementi a impilarsi verticalmente */
+        width: 100%; /* Occupa l'intera larghezza disponibile */
+    }
+    
+    /* Regola il margine sui pulsanti per impilamento */
+    .maps-btn, .whatsapp-btn {
+        margin: 5px 0; /* Rimuovi i margini laterali e aggiungi un piccolo margine verticale */
+        text-align: center; /* Centra il testo all'interno del pulsante allungato */
+    }
+
+}
+
+/* Whatsapp Contact Section */
+.whatsapp-contact {
+    margin-top: 20px;
+}
+
+#santa {
+    aspect-ratio: calc(500/750);
+    width: 90%;
+}
+
+
+
+
+
+/* === POPUP PROMOZIONALE === */
+
+.popup-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.0); /* Inizia completamente trasparente */
+    display: flex; /* Manteniamo sempre flex, gestiamo la visibilità con l'opacità */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    pointer-events: none; /* Cruciale: permette di cliccare attraverso quando non è attivo */
+    
+    /* Animazione: Transizione per lo sfondo (wrapper) */
+    transition: background-color 0.4s ease;
+    
+    /* Nascondi di default con opacità */
+    opacity: 0; 
+}
+
+.popup-wrapper.active {
+    background-color: rgba(41, 41, 41, 0.615); /* Sfondo scuro visibile */
+    opacity: 1; 
+    pointer-events: auto; /* Abilita l'interazione al mouse/tocco */
+}
+
+.popup-content {
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(5px); 
+    color: var(--color-text-light);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    
+    /* Animazione: Transizione per il contenuto, inizia più piccolo */
+    transform: scale(0.8);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Effetto "molla" */
+}
+
+.popup-wrapper.active .popup-content {
+    transform: scale(1); /* Torna alla dimensione normale */
+}
+
+
+.popup-content h3 {
+    color: var(--color-secondary);
+    margin-top: 0;
+    font-size: 1.8rem;
+}
+
+.popup-content h4 {
+    color: var(--color-secondary);
+    margin-top: 0;
+    font-size: 1.2rem;
+}
+
+.popup-content p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 15px 0;
+}
+
+.popup-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-text-dark);
+    line-height: 1;
+    transition: background-color 0.2s, transform 0.2s ease;
+}
+
+.popup-close-btn:hover, .popup-cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+.popup-cta-btn {
+    display: block;
+    background-color: var(--color-secondary);
+    color: var(--color-text-dark);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 20px auto 10px;
+    transition: background-color 0.2s, tranform 0.2s ease;
+}
+
+.popup-cta-btn:hover {
+    background-color: #c2b8b0; /* Un tono più scuro */
+    
+}
+
+@media (max-width: 800px) {
+    
+    .popup-content {
+        max-width: 70%;
+    }
+
+}
+
