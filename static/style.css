@@ -650,6 +650,26 @@ body.menu-open {
     order: 1;
 }
 
+.pacchetti-icon {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    margin: 0;   
+}
+
+.pacchetti-icon i:nth-child(odd) {
+    justify-self: end;
+}
+
+.pacchetti-icon i:nth-child(even) {
+    justify-self: start;
+}
+
+.pacchetti-icon h3 {
+    grid-column: 1 / 3;
+    text-align: center;
+    margin-top: 10px;
+}
+
 @media (max-width: 800px) {  
     .logo-home-small {    
     display: none;
