@@ -531,7 +531,7 @@ body.menu-open {
   box-shadow: var(--shadow-card-lg);
 }
 
-.top-title h2, .toggle-container h3, .main-content h2, .contact-location h2, .contact-container h2 {
+.top-title h1, .top-title h2, .toggle-container h3, .main-content h2, .contact-location h2, .contact-container h2 {
     margin-bottom: 0.5em;
     font-family: "Collier", sans-serif;
     font-weight: 600;
