@@ -613,7 +613,7 @@ body.menu-open {
 }
 
 
-.toggle-container summary {
+.toggle-container summary, .subtitle {
     font-weight: bold;
     list-style: none;
     text-transform: uppercase;
