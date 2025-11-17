@@ -616,6 +616,7 @@ body.menu-open {
 .toggle-container summary {
     font-weight: bold;
     list-style: none;
+    text-transform: uppercase;
 }
 
 .toggle-container summary::-webkit-details-marker {
@@ -639,10 +640,12 @@ body.menu-open {
     font-size: 60px;
     margin: 15px;
 }
+
+
 .icon { 
     text-decoration: none;
     color: var(--color-text-light); 
-    font-size: 60px;
+    font-size: 2.5rem;
     
     transition: transform 0.3s ease;
     display: inline-block;
@@ -650,6 +653,7 @@ body.menu-open {
 }
 .icon p {
     font-size: small;
+    letter-spacing: 0.05rem;
 
 }
 .icon:hover {
@@ -668,6 +672,10 @@ body.menu-open {
     display: grid;
     grid-template-columns: 50% 50%;
     margin: 0;   
+}
+
+.toggle-container summary i {
+    font-size: 2.5rem;
 }
 
 .pacchetti-icon i:nth-child(odd) {
@@ -755,7 +763,7 @@ body.menu-open {
     width: 600px;
     border-radius: 15px;
     margin: 10px auto;
-    padding: 20px;
+    padding: 15px;
 }
 
 .recensione-text {
@@ -764,7 +772,7 @@ body.menu-open {
 
 .stars{
     width: 200px;
-    padding: 15px;
+    padding: 10px;
 }
 .recensione {
     flex-shrink: 0;
