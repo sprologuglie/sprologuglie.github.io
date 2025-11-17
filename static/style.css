@@ -432,6 +432,16 @@ body.menu-open {
     margin: 0 auto;
 }
 
+.f-links {
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.f-links :hover {
+    transform: translateY(-5px);
+}
+
 .empty {
     padding: 1px;
 }
@@ -689,6 +699,10 @@ body.menu-open {
     #fra-text {
         order: 2;
     }
+
+    .recensione-text {
+        max-width: 80%;
+    }
 }
 
 
@@ -726,7 +740,94 @@ body.menu-open {
     text-align: justify;
 }
 
+.recensioni-title {
+    text-align: center;
+}
 
+.recensione-text, .stars {
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(15px);
+    color: var(--color-text-dark);
+    width: 600px;
+    border-radius: 15px;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+.recensione-text {
+    margin: auto;
+}
+
+.stars{
+    width: 200px;
+    padding: 15px;
+}
+.recensione {
+    flex-shrink: 0;
+    width: 98%;
+    padding: 1%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+/* La tua definizione per il contenitore di movimento (wrapper) */
+.recensioni-container {
+    display: flex; 
+    transition: transform 0.5s ease-out;
+}
+
+/* Assicurati che il viewport nasconda l'eccesso */
+.recensioni-viewport {
+    position: relative;
+    overflow: hidden;
+    align-self: center;
+     
+}
+
+.carosello-recensioni {
+    position: relative; /* Necessario per posizionare i bottoni in modo assoluto */
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(3px);
+    color: var(--color-text-dark);
+}
+
+.margin {
+    margin: 0 15px;
+}
+
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-20%); 
+    z-index: 10; /* Assicurati che siano sopra le recensioni */
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+/* Applica l'effetto solo quando il mouse è sopra */
+.prev-btn:hover, 
+.next-btn:hover {
+    /* Sposta il bottone leggermente verso l'alto */
+    transform: translateY(-55%) scale(1.1); 
+    cursor: pointer;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
 
 
 
@@ -747,7 +848,7 @@ body.menu-open {
 
 .whatsapp-contact {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     justify-content: flex-start;
 }
 

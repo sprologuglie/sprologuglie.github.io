@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    
     
     // =========================================================
     // 0. ACCESSIBILITÀ: GESTIONE FOCUS (Tab vs Mouse)
@@ -243,6 +245,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
+
+    // Seleziona l'elemento CORRETTO per il movimento (il tuo .recensioni-container)
+    const wrapper = document.querySelector('.recensioni-container'); 
+
+    // Seleziona i pulsanti che erano mancanti
+    const nextBtn = document.querySelector('.next-btn');
+    const prevBtn = document.querySelector('.prev-btn');
+
+    // Seleziona le recensioni
+    const recensioni = document.querySelectorAll('.recensione'); 
+
+    // Continua la logica come avevi fatto:
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        // Calcola di quanto spostare il wrapper. 
+        // Spostamento = - (indice corrente * 100%)
+        const offset = currentIndex * 100; 
+        
+        // Applica la trasformazione CSS
+        wrapper.style.transform = `translateX(-${offset}%)`;
+    }
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % recensioni.length; 
+        updateCarousel();
+    });
+
+    prevBtn.addEventListener('click', () => {
+        // Gestione del loop per tornare all'ultima recensione
+        currentIndex = (currentIndex - 1 + recensioni.length) % recensioni.length; 
+        updateCarousel();
+    });
+
+    // Inizializzazione
+    updateCarousel();    
 // CHIUSURA FINALE CORRETTA dell'evento DOMContentLoaded
 });
