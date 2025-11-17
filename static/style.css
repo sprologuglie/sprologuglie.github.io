@@ -550,6 +550,10 @@ body.menu-open {
     text-transform: uppercase;
 }
 
+.icon-list {
+    font-size: 1.4rem;
+}
+
 #servizi-top i{
     font-size: 2rem;
     margin-right: 7px;
