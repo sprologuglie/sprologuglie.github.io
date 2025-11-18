@@ -532,10 +532,8 @@ body.menu-open {
 }
 
 /* --- Effetto Hover (Transizioni) --- */
-.top-title:hover,
-.toggle-container:hover,
-.contact-location:hover,
-.contact-container:hover {
+
+.toggle-container:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
 }
@@ -649,13 +647,13 @@ body.menu-open {
 }
 
 .toggle-container img, .main-content img {    
-    width: 100%;
+    max-width: 220px;
     height: auto;
     object-position: center;
 }
 
 .top-title img {
-    max-width: 700px;
+    max-width: 300px;
     height: auto;
     object-position: center;
 }
@@ -967,7 +965,7 @@ body.menu-open {
 /* --- Buono Regalo (Immagine) --- */
 #santa {
     aspect-ratio: calc(500/750); /* Mantiene l'aspetto originale 2:3 (500/750) */
-    width: 90%;
+    max-width: 230px;
 }
 
 
