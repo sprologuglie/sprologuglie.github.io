@@ -598,7 +598,6 @@ body.menu-open {
     border-radius: 10px;
     margin-bottom: 20px;
     object-fit: cover;
-    aspect-ratio: 9 / 12;
 }
 
 .toggle-container img, .main-content img {    
