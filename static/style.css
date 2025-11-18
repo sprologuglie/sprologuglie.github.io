@@ -10,6 +10,22 @@
     --color-dropdown-hover: #f0f9ff51;
     --color-dropdown-border: rgba(255, 255, 255, 0.2);
 
+    /* Layout */
+    --space-xs: 0.25rem;
+    --space-sm: 0.625rem; /* 10px */
+    --space-md: 0.9375rem; /* 15px */
+    --space-lg: 1.25rem; /* 20px */
+    --space-xl: 2.5rem; /* 40px */
+    --space-xxl: 1.5625rem; /* 25px */
+    --space-xxxl: 1.875rem; /* 30px */
+    --radius-sm: 0.5rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 0.9375rem;
+    --blur-light: 5px;
+    --blur-strong: 10px;
+    --transition-base: 0.3s ease;
+    --transition-fast: 0.2s ease;
+
     /* Sfondi Trasparenti */
     --bg-blur-card: #f0f0f01b; /* Sfondo semi-trasparente per le card */
 
@@ -35,26 +51,20 @@ html, body {
 }
 
 body {
-    /* Layout & Positioning */
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     min-height: 100vh;
-    
-    /* Background */
     background-image: url("images/sfondo4.webp");
-    background-size: 100% auto;    
-    /* FIX: Immagine sotto l'header (circa 80px di altezza header) */
-    background-position: center 10px; 
+    background-size: 100% auto;
+    background-position: center var(--space-sm);
     background-color: var(--color-primary);
-    
-    /* Typography & Color */
     font-weight: 500;
     color: var(--color-text-light);
 }
 
 main {
     flex: 1;
-    padding: 10px;
+    padding: var(--space-sm);
     text-align: center;
 }
 
@@ -68,30 +78,31 @@ button, a {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 15px 40px;
+    padding: var(--space-md) var(--space-xl);
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-strong));
     box-shadow: var(--shadow-header);
-    border-radius: 12px;
-    margin: 10px;
+    border-radius: var(--radius-md);
+    margin: var(--space-sm);
     z-index: 100;
     position: relative;
 }
-.logo {
-    height: 50px;
-    border-radius: 12px;
+
+.logo-image {
+    height: 3.125rem;
+    border-radius: var(--radius-md);
     box-shadow: var(--shadow-logo);
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base);
 }
 
 .logo-line {
-    font-size: 40px;
-    margin: 0 0.5rem;
+    font-size: 2.5rem;
+    margin: 0 var(--space-sm);
 }
 
 .therapyou {
     font-family: "Collier";
-    align-self: left;
+    align-self: flex-start;
 }
 
 .therapyou a {
@@ -115,14 +126,14 @@ button, a {
     margin-left: auto;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: var(--space-sm);
 }
 
 /* Social Icons */
 .social a {
     position: relative;
     color: var(--color-text-dark);
-    margin: 0 10px;
+    margin: 0 var(--space-sm);
     font-size: 1.3rem;
     text-decoration: none;
     border-radius: 50%;
@@ -131,11 +142,11 @@ button, a {
 /* Aggiungi questo nuovo blocco dopo .social a:hover */
 .social a i { /* Agisci sull'elemento <i> all'interno del link */
     display: inline-block; /* Necessario per applicare transform e box-shadow */
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base);
 }
 
-.social a:hover i, .dropbtn:hover, .logo:hover, .top-link:hover { 
-    transform: translateY(-2px); 
+.social a:hover i, .dropbtn:hover, .logo-image:hover, .top-link:hover {
+    transform: translateY(-2px);
 }
 
 
@@ -171,7 +182,7 @@ body:not(.mouse-user) .menu-social a:focus {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base);
 }
 
 .dropbtn:hover{
@@ -184,11 +195,11 @@ body:not(.mouse-user) .menu-social a:focus {
     right: -1000px; /* Nasconde il menu fuori dallo schermo */
     width: 280px;
     height: 85%;
-    padding: 20px;
+    padding: var(--space-lg);
     background-color: var(--bg-blur-card);
     backdrop-filter: blur(25px); /* Usa il tuo colore principale per contrasto */
-    border-radius: 15px;
-    margin: 10px;
+    border-radius: var(--radius-lg);
+    margin: var(--space-sm);
     box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
     z-index: 1500; /* Assicurati che sia sopra ogni cosa */
     overflow-y: auto;
@@ -196,7 +207,7 @@ body:not(.mouse-user) .menu-social a:focus {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 60px;
+    padding-top: 3.75rem;
 }
 
 /* Stato Attivo: menu visibile */
@@ -207,8 +218,8 @@ body:not(.mouse-user) .menu-social a:focus {
 /* Pulsante Chiudi */
 .close-btn {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: var(--space-md);
+    left: var(--space-md);
     background: none;
     border: none;
     font-size: 2.5rem;
@@ -220,17 +231,17 @@ body:not(.mouse-user) .menu-social a:focus {
 /* Stili Link di Navigazione */
 .menu-links a {
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(var(--blur-light));
     color: var(--color-text-dark);
-    padding: 12px 10px;
+    padding: var(--space-sm);
     text-decoration: none;
     display: block;
     font-size: 1.1rem;
     font-weight: 500;
     border-bottom: 1px solid var(--color-dropdown-hover);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    border-radius: 15px;
-    margin-bottom: 2px;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-xs);
 }
 
 
@@ -244,18 +255,18 @@ body:not(.mouse-user) .menu-social a:focus {
 .menu-social {
     display: flex;
     flex-direction: column;
-    padding-top: 20px;
+    padding-top: var(--space-lg);
     border-top: 2px solid var(--color-text-dark);
-    margin-top: 20px;
+    margin-top: var(--space-lg);
 }
 
 .menu-social a {
     color: var(--color-text-dark);
     font-size: 1rem;
-    padding: 10px;
+    padding: var(--space-sm);
     text-align: left;
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base);
 }
 
 .menu-social a:hover {
@@ -288,12 +299,12 @@ body.menu-open {
 /* --- STILI SOTTO-MENU OFF-CANVAS --- */
 .submenu-container {
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(5px);
-    padding: 12px 10px;
+    backdrop-filter: blur(var(--blur-light));
+    padding: var(--space-sm);
     border-bottom: 1px solid var(--color-dropdown-hover);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    border-radius: 15px;
-    margin-bottom: 1.8px;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
+    border-radius: var(--radius-lg);
+    margin-bottom: 0.1125rem;
 }
 
 .submenu-container i{
@@ -316,6 +327,7 @@ body.menu-open {
     font-weight: 500;
     text-align: left;
     padding: 0;
+    gap: var(--space-sm);
 }
 
 
@@ -324,21 +336,21 @@ body.menu-open {
 /* Contenitore dei link interni (inizialmente chiuso) */
 .submenu-content {
     /* Impostiamo l'altezza su 0 per l'animazione smooth-toggle (gestita da JS) */
-    height: 0; 
+    height: 0;
     overflow: hidden;
-    transition: height 0.3s ease-in-out; 
-    padding-left: 10px; /* Indentazione per i link interni */
+    transition: height 0.3s ease-in-out;
+    padding-left: var(--space-sm); /* Indentazione per i link interni */
     display: flex;
     flex-direction: column;
 }
 
 /* Stile dei link interni al sotto-menu */
 .submenu-content a {
-    padding: 10px 10px; /* Padding ridotto */
+    padding: var(--space-sm); /* Padding ridotto */
     font-size: 1rem;
     font-weight: 400; /* Peso ridotto */
     border-bottom: none; /* Rimuove il bordo per un aspetto più pulito */
-    margin-bottom: 2px;
+    margin-bottom: var(--space-xs);
 }
 
 
@@ -351,31 +363,31 @@ body.menu-open {
 
 /* === MEDIA QUERY: Mobile/Tablet (max-width: 900px) === */
 @media (max-width: 800px) {
-    
+
     body {
-        background-position: center 5px;
+        background-position: center var(--space-xs);
     }
 
     main {
-        padding: 0px;
+        padding: 0;
     }
 
     .site-header {
-        padding: 10px 15px;
+        padding: var(--space-sm) var(--space-md);
         flex-wrap: nowrap;
     }
 
-    .logo {
-        height: 45px; 
+    .logo-image {
+        height: 2.8125rem;
     }
 
     .therapyou {
         position: static;
         transform: none;
-        margin-left: 10px; 
+        margin-left: var(--space-sm);
         margin-right: auto;
-        white-space: nowrap; 
-        flex-shrink: 1; 
+        white-space: nowrap;
+        flex-shrink: 1;
         min-width: 0;
     }
     
@@ -390,9 +402,8 @@ body.menu-open {
     }
     
     .main-nav {
-        gap: 5px; 
+        gap: var(--space-xs);
     }
-
 
     .social {
         display: none;
@@ -400,10 +411,9 @@ body.menu-open {
 
 
     .dropbtn {
-            font-size: 1.5rem;
-            padding: 5px;
+        font-size: 1.5rem;
+        padding: var(--space-xs);
     }
-
 
     .side-menu {
         width: 85%;
@@ -415,11 +425,11 @@ body.menu-open {
 /* === FOOTER (Piè di pagina) === */
 
 .site-footer {
-    padding: 10px;
+    padding: var(--space-sm);
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    margin: 15px;
+    backdrop-filter: blur(var(--blur-strong));
+    border-radius: var(--radius-lg);
+    margin: var(--space-md);
     text-align: center;
     font-weight: 300;
     color: var(--color-text-dark);
@@ -428,7 +438,7 @@ body.menu-open {
 .footer-box {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2em;
+    gap: var(--space-xl);
     text-align: left;
     max-width: 1000px;
     margin: 0 auto;
@@ -437,7 +447,7 @@ body.menu-open {
 .f-links {
     color: var(--color-text-dark);
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base);
 }
 
 .f-links :hover {
@@ -464,21 +474,21 @@ body.menu-open {
 /* Whatsapp Floating Button */
 .whatsapp-float {
     position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 20px;
-    right: 20px;
+    width: 3.75rem;
+    height: 3.75rem;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
     background-color: var(--color-whatsapp);
     color: white;
     border-radius: 50%;
     text-align: center;
-    font-size: 30px;
+    font-size: 1.875rem;
     box-shadow: var(--shadow-whatsapp);
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base);
     text-decoration: none;
     line-height: 1;
 }
@@ -510,10 +520,10 @@ body.menu-open {
 .top-container, .main-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2em;
+    gap: var(--space-xl);
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: var(--space-lg);
 }
 
 .main-column {
@@ -521,15 +531,15 @@ body.menu-open {
 }
 
 /* Stili generali per le box/card della Home Page e Contatti */
-.top-title, .toggle-container, .main-content, .contact-location, .contact-container { 
-    padding: 25px;
-    border-radius: 15px;
+.top-title, .toggle-container, .main-content, .contact-location, .contact-container {
+    padding: var(--space-xxl);
+    border-radius: var(--radius-lg);
     box-sizing: border-box;
-    
+
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(var(--blur-light));
     box-shadow: var(--shadow-card-md);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
     
     text-align: center;
     font-size: 1rem;
@@ -544,7 +554,7 @@ body.menu-open {
 }
 
 .top-title h1, .top-title h2, .toggle-container h3, .main-content h2, .contact-location h2, .contact-container h2 {
-    margin-bottom: 0.5em;
+    margin-bottom: var(--space-sm);
     font-family: "Collier", sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
@@ -583,7 +593,7 @@ body.menu-open {
 .top-link {
     display: block;
     text-decoration: none;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-base);
     text-transform: uppercase;
     color: var(--color-text-dark);
 }
@@ -595,8 +605,8 @@ body.menu-open {
 
 
 .toggle-container img, .top-container img, .main-content img {
-    border-radius: 10px;
-    margin-bottom: 20px;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-lg);
     object-fit: cover;
     aspect-ratio: 9 / 12;
 }
@@ -633,7 +643,7 @@ body.menu-open {
 }
 
 .toggle-container p {
-    margin-top: 10px;
+    margin-top: var(--space-sm);
 }
 
 .toggle-text {
@@ -646,19 +656,19 @@ body.menu-open {
     }
 
 .toggle-container i {
-    font-size: 60px;
-    margin: 15px;
+    font-size: 3.75rem;
+    margin: var(--space-md);
 }
 
 
-.icon { 
+.icon {
     text-decoration: none;
-    color: var(--color-text-light); 
+    color: var(--color-text-light);
     font-size: 2.5rem;
-    
-    transition: transform 0.3s ease;
+
+    transition: transform var(--transition-base);
     display: inline-block;
-    margin: 15px; 
+    margin: var(--space-md);
 }
 .icon p {
     font-size: small;
@@ -778,9 +788,9 @@ body.menu-open {
     backdrop-filter: blur(15px);
     color: var(--color-text-dark);
     width: 600px;
-    border-radius: 15px;
-    margin: 10px auto;
-    padding: 15px;
+    border-radius: var(--radius-lg);
+    margin: var(--space-sm) auto;
+    padding: var(--space-md);
 }
 
 .recensione-text {
@@ -789,7 +799,7 @@ body.menu-open {
 
 .stars{
     width: 200px;
-    padding: 10px;
+    padding: var(--space-sm);
 }
 .recensione {
     flex-shrink: 0;
@@ -898,7 +908,7 @@ body.menu-open {
 }
 
 .maps-btn {
-    margin-top: 10px;
+    margin-top: var(--space-sm);
 }
 
 .maps-btn:hover, .whatsapp-btn:hover {
@@ -907,12 +917,11 @@ body.menu-open {
 }
 
 .map-container {
-    margin: 0 auto;
-    margin-top: 1em;
+    margin: var(--space-lg) auto 0;
     position: relative;
     width: 90%;
     padding-bottom: 42.85%;
-    height: 0; 
+    height: 0;
     overflow: hidden;
 }
 
@@ -920,9 +929,9 @@ body.menu-open {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; 
+    width: 100%;
     height: 100%;
-    border-radius: 15px;
+    border-radius: var(--radius-lg);
 }
 
 /* Media Query per PC (min-width: 769px) */
@@ -968,7 +977,7 @@ body.menu-open {
 
 /* Whatsapp Contact Section */
 .whatsapp-contact {
-    margin-top: 20px;
+    margin-top: var(--space-lg);
 }
 
 #santa {
@@ -1010,10 +1019,10 @@ body.menu-open {
 
 .popup-content {
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(var(--blur-light));
     color: var(--color-text-light);
-    padding: 30px;
-    border-radius: 15px;
+    padding: var(--space-xxxl);
+    border-radius: var(--radius-lg);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     max-width: 400px;
     text-align: center;
@@ -1044,20 +1053,20 @@ body.menu-open {
 .popup-content p {
     font-weight: 600;
     font-size: 1.1rem;
-    margin: 15px 0;
+    margin: var(--space-md) 0;
 }
 
 .popup-close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: var(--space-sm);
+    right: var(--space-sm);
     background: none;
     border: none;
     font-size: 2rem;
     cursor: pointer;
     color: var(--color-text-dark);
     line-height: 1;
-    transition: background-color 0.2s, transform 0.2s ease;
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .popup-close-btn:hover, .popup-cta-btn:hover {
@@ -1068,12 +1077,12 @@ body.menu-open {
     display: block;
     background-color: var(--color-secondary);
     color: var(--color-text-dark);
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-sm);
     text-decoration: none;
     font-weight: 700;
-    margin: 20px auto 10px;
-    transition: background-color 0.2s, tranform 0.2s ease;
+    margin: var(--space-lg) auto var(--space-sm);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .popup-cta-btn:hover {
