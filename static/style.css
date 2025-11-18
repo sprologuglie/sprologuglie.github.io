@@ -58,7 +58,9 @@ main {
     text-align: center;
 }
 
-
+button {
+    color: #000000;
+}
 /* === HEADER (Intestazione) === */
 
 

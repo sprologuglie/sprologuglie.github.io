@@ -213,38 +213,74 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. GESTIONE SOTTO-MENU (Dropdown Verticale)
     // =========================================================
 
-    const submenuToggle = document.querySelector('.submenu-toggle');
-    const submenuContent = document.getElementById('sub-servizi');
 
-    if (submenuToggle && submenuContent) {
-        submenuToggle.addEventListener('click', () => {
-            const isExpanded = submenuToggle.getAttribute('aria-expanded') === 'true' || false;
-            
-            // Toggle dello stato ARIA
-            submenuToggle.setAttribute('aria-expanded', !isExpanded);
-            submenuContent.hidden = isExpanded; // Nasconde/Mostra per gli screen reader
 
-            if (!isExpanded) {
-                // APERTURA: Imposta l'altezza sul valore scrollHeight per l'animazione
-                submenuContent.style.height = submenuContent.scrollHeight + 'px';
-            } else {
-                // CHIUSURA: Forza l'altezza attuale, quindi impostala a 0 per la transizione CSS
-                submenuContent.style.height = submenuContent.scrollHeight + 'px';
-                // Utilizza un timeout per applicare la transizione correttamente
-                setTimeout(() => {
-                    submenuContent.style.height = '0';
-                }, 10);
+
+    // 1. Seleziona tutti i pulsanti di attivazione del sottomenù
+    const submenuToggles = document.querySelectorAll('.submenu-toggle');
+
+    submenuToggles.forEach(submenuToggle => {
+        // 2. Per ogni pulsante, trova il sottomenù target utilizzando l'attributo aria-controls
+        const submenuId = submenuToggle.getAttribute('aria-controls');
+        // ASSICURATI DI AVER RINOMINATO GLI ID NEL TUO HTML COME CONSIGLIATO:
+        // Esempio: "sub-servizi-pt", "sub-servizi-chin", ecc.
+        const submenuContent = document.getElementById(submenuId);
+
+        // 3. Applica la logica solo se entrambi gli elementi esistono
+        if (submenuToggle && submenuContent) {
+
+            // Inizializzazione: Assicurati che all'avvio, se è nascosto, l'altezza sia 0
+            // Questo è cruciale se usi l'animazione basata sull'altezza.
+            if (submenuContent.hidden) {
+                submenuContent.style.height = '0';
+                // Rimuovi l'attributo 'hidden' per consentire la transizione CSS/JS
+                submenuContent.removeAttribute('hidden');
             }
-        });
-        
-        // Rimuovi l'altezza fissa quando l'animazione è completata
-        submenuContent.addEventListener('transitionend', () => {
-            if (submenuContent.getAttribute('aria-expanded') === 'true') {
-                // Rimuove l'altezza fissa dopo l'apertura completa per gestire contenuti dinamici
-                submenuContent.style.height = 'auto';
-            }
-        });
-    }
+
+
+            // Listener per il click sul pulsante
+            submenuToggle.addEventListener('click', () => {
+                const isExpanded = submenuToggle.getAttribute('aria-expanded') === 'true';
+
+                // Toggle dello stato ARIA
+                submenuToggle.setAttribute('aria-expanded', !isExpanded);
+
+                if (!isExpanded) {
+                    // --- APERTURA ---
+                    // Imposta l'altezza sul valore scrollHeight per l'animazione di espansione
+                    submenuContent.style.height = submenuContent.scrollHeight + 'px';
+                    // Rende visibile il contenuto per gli screen reader (accessibilità)
+                    submenuContent.hidden = false;
+
+                } else {
+                    // --- CHIUSURA ---
+                    // 1. Forza l'altezza attuale (necessario per l'animazione di chiusura)
+                    submenuContent.style.height = submenuContent.scrollHeight + 'px';
+                    
+                    // 2. Utilizza un timeout per applicare la transizione CSS a height: 0
+                    setTimeout(() => {
+                        submenuContent.style.height = '0';
+                    }, 10);
+                }
+            });
+
+            // Listener per la fine dell'animazione (transizione CSS)
+            submenuContent.addEventListener('transitionend', (e) => {
+                // Controlla se l'animazione è terminata su una proprietà specifica (e.g., 'height')
+                if (e.propertyName === 'height') {
+                    // Se il sottomenù è aperto
+                    if (submenuToggle.getAttribute('aria-expanded') === 'true') {
+                        // Rimuovi l'altezza fissa dopo l'apertura completa per gestire contenuti dinamici
+                        submenuContent.style.height = 'auto';
+                    } else {
+                        // Se il sottomenù è chiuso (height: 0), nascondilo completamente
+                        submenuContent.hidden = true;
+                    }
+                }
+            });
+        }
+    });
+
 
     // Seleziona l'elemento CORRETTO per il movimento (il tuo .recensioni-container)
     const wrapper = document.querySelector('.recensioni-container'); 
