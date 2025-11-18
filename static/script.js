@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aggiungi queste righe al tuo file JavaScript esistente:
 
     // Durata in millisecondi tra una slide e l'altra (es. 5 secondi)
-    const AUTO_SCROLL_DELAY = 5000; 
+    const AUTO_SCROLL_DELAY = 10000; 
 
     // Funzione che gestisce lo scorrimento
     function autoScroll() {
