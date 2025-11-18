@@ -281,9 +281,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Aggiungi queste righe al tuo file JavaScript esistente:
 
-    // Seleziona l'elemento CORRETTO per il movimento (il tuo .recensioni-container)
-    const wrapper = document.querySelector('.recensioni-container'); 
+    // Durata in millisecondi tra una slide e l'altra (es. 5 secondi)
+    const AUTO_SCROLL_DELAY = 5000; 
+
+    // Funzione che gestisce lo scorrimento
+    function autoScroll() {
+        // Stessa logica del nextBtn: incrementa l'indice e aggiorna il carosello
+        currentIndex = (currentIndex + 1) % recensioni.length; 
+        updateCarousel();
+    }
+
+    // Avvia il timer. autoScroll verrà chiamato ogni 5 secondi.
+    let scrollInterval = setInterval(autoScroll, AUTO_SCROLL_DELAY);
+        // Seleziona l'elemento CORRETTO per il movimento (il tuo .recensioni-container)
+        const wrapper = document.querySelector('.recensioni-container'); 
+    // Seleziona il contenitore principale del carosello
+    const carosello = document.querySelector('.carosello-recensioni');
+
+    // 1. All'ingresso del mouse (mouseover), ferma lo scorrimento
+    carosello.addEventListener('mouseover', () => {
+        clearInterval(scrollInterval); // Interrompe il timer
+    });
+
+    // 2. All'uscita del mouse (mouseout), riavvia lo scorrimento
+    carosello.addEventListener('mouseout', () => {
+        // Ri-avvia il timer, assegnandolo nuovamente alla variabile 'scrollInterval'
+        scrollInterval = setInterval(autoScroll, AUTO_SCROLL_DELAY);
+    });
 
     // Seleziona i pulsanti che erano mancanti
     const nextBtn = document.querySelector('.next-btn');

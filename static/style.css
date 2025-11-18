@@ -577,6 +577,7 @@ body.menu-open {
 
 .logo-home-small{
     width: 100px;
+    align-self: center;
 }
 
 .top-link {
@@ -597,12 +598,12 @@ body.menu-open {
     border-radius: 10px;
     margin-bottom: 20px;
     object-fit: cover;
+    aspect-ratio: initial;
 }
 
 .toggle-container img, .main-content img {    
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1;
     object-position: center;
 }
 
