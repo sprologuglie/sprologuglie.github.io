@@ -73,11 +73,12 @@
     <div class="main-container">
         <div class="main-column reveal-item">
           <div class="main-content">
-            <h2>Un team giovane, preparato e attento alla persona</h2>
-            <p class="just">TherapYou nasce dall'idea di creare uno spazio in cui osteopatia e allenamento possano convivere in modo naturale, contribuendo insieme al benessere della persona. Siamo un team con doppia formazione, laurea in Scienze Motorie e qualifica in Osteopatia, e questa caratteristica ci permette di unire la precisione del trattamento manuale con la solidità dell'esercizio fisico.
-              Il nostro approccio è allo stesso tempo professionale e umano: crediamo nel dialogo, nel confronto continuo e nella capacità di adattare ogni percorso alle reali esigenze della persona. Non proponiamo protocolli standard, ma un lavoro costruito passo dopo passo, con attenzione e competenza.
-              Lo studio è uno spazio in cui vogliamo farti sentire accolto e tranquillo: moderno, ordinato, mai affollato. Qui puoi prenderti il tuo tempo, capire come funziona il tuo corpo e lavorare con continuità verso un cambiamento concreto. Ci piace pensare che chi entra in TherapYou non trovi solo un professionista, ma un punto di riferimento per la propria salute e il proprio movimento.
-              <br>Ogni persona è diversa, e ogni percorso merita attenzione e cura.
+            <h2>Un team giovane, dinamico e in costante aggiornamento.</h2>
+            <p class="just">
+              Gli anni di studio e le esperienze maturate sul campo ci hanno permesso di comprendere le molteplici sfumature del corpo umano, analizzare ogni movimento — anche il più piccolo — e coglierne obiettivi, limiti e potenzialità.
+              Ogni persona è unica: per questo studiamo ogni corpo come un caso a sé, adattando il percorso e il lavoro in base alle reali esigenze dell’individuo.
+              Durante la nostra carriera abbiamo seguito sportivi, persone con patologie croniche, anziani, donne in gravidanza, ragazzi alle prime esperienze e persone che, dopo anni di sport intenso, avevano bisogno di ritrovare equilibrio e funzionalità.
+              Il nostro impegno è sempre lo stesso: accompagnare ciascuno verso un miglioramento concreto della qualità di vita, verso una maggiore autonomia nella gestione della propria quotidianità e verso un rinnovato senso di autostima.
             </p>
           </div>
         </div>
@@ -85,27 +86,31 @@
 
 
     <div class="main-container">
-      <div class="main-column reveal-item" id="deborah">
+      <div class="main-column reveal-item" id="deborah-text">
         <div class="main-content">
-            <h2>Deborah</h2>
+            <h2>
+              Dott.ssa Deborah Scovazzo
+            </h2>
+            <h4>
+              Osteopata • Personal Trainer • Chinesiologa Clinica
+            </h4>
             <img src="/static/images/deborah-osteopata.webp" alt="deborah in veste di osteopata" loading="lazy">
-        </div>
-      </div>
-      <div class="main-column reveal-item">
-        <div class="main-content">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>           
+            <p>
+              La Dott.ssa Deborah Scovazzo integra in modo sinergico competenze motorie e osteopatiche per offrire un approccio completo e personalizzato.
+              Dopo aver conseguito la laurea triennale in Scienze Motorie e la laurea magistrale in Attività Fisiche Adattate, prosegue la sua formazione specializzandosi in Osteopatia presso l’Accademia ASOMI di Torino.
+              Il suo percorso professionale è arricchito da corsi avanzati sull’allenamento femminile, sulle problematiche specifiche della donna, sull’attività in gravidanza e nel post parto, e sulla riatletizzazione e preparazione atletica di sportivi.
+              Gli anni di esperienza in un centro di fisioterapia le hanno inoltre permesso di approfondire la gestione di patologie croniche e degenerative, in particolare nella popolazione anziana.
+              Deborah è apprezzata per il suo approccio calmo, tecnico e preciso.
+              Cura ogni dettaglio, corregge anche il più piccolo difetto esecutivo e dedica ogni minuto della seduta alla persona che ha davanti.
+              L’allenamento nasce dall’ascolto: non solo del corpo, ma anche dello stato d’animo del momento, così da costruire ogni volta un percorso realmente su misura.
+            </p>        
           </div>
       </div>
-    </div>
-
-
-    <div class="main-container">
       <div class="main-column reveal-item" id="fra-text">
         <div class="main-content">
+            <h2>Fra</h2>
+            <h4>Pallavolista</h4>
+            <img src="/static/images/sfondo-removebg-preview.webp" loading="lazy">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
               Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
@@ -113,12 +118,6 @@
             </p>           
           </div>
       </div>      
-      <div class="main-column reveal-item" id="fra">
-        <div class="main-content">
-            <h2>Fra</h2>
-            <img src="/static/images/sfondo-removebg-preview.webp" loading="lazy">
-        </div>
-      </div>
     </div>
       <div class="top-container">
         <div class="top-title reveal-item">
@@ -167,9 +166,13 @@
     <button id="close-menu-btn" class="close-btn">&times;</button>
     <div class="menu-links">
       <a href="/">Home</a>
-      <a href="/servizi/">Tutti i servizi</a>
-      <a href="/osteopatia/">Osteopatia</a>
 <div class="submenu-container">
+  <button class="submenu-toggle" aria-expanded="false" aria-controls="sub-servizi">Servizi<i class="fa-solid fa-chevron-down"></i></button>
+  <div id="sub-servizi" class="submenu-content" hidden>
+    <a href="/servizi/">Tutti i servizi</a>
+      <a href="/osteopatia/">Osteopatia</a>
+
+    <div class="submenu-container">
     <button class="submenu-toggle" aria-expanded="false" aria-controls="sub-servizi-pt">Personal Training<i class="fa-solid fa-chevron-down"></i></button>
     <div id="sub-servizi-pt" class="submenu-content" hidden>
         <a href="/personal-training/">Allenamento individuale</a>
@@ -192,6 +195,8 @@
         <a href="/preparazione-atletica/">Preparazione atletica</a>
         <a href="/riatletizzazione/">Riatletizzazione</a>
     </div>
+</div>
+  </div> 
 </div>
   <a href="/team/">Team</a>
   <a href="/buono-regalo/">Buono Regalo</a>

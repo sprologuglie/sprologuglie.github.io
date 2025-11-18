@@ -3,22 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Studio Therapyou - osteopatia e personal training a Moncalieri. Trattamenti e allenamenti personalizzati per salute e benessere fisico completo">
-  <meta property="og:title" content="Therapyou - osteopatia e personal training">
-  <meta property="og:description" content="Studio Therapyou: trattamenti di osteopatia e percorsi di allenamento personalizzati.">
+  <meta name="description" content="Regala salute e benessere con i buoni regalo Therapyou: osteopatia e personal training a Moncalieri.">
+  <meta property="og:title" content="Buono Regalo - Therapyou">
+  <meta property="og:description" content="Regala un percorso di benessere: osteopatia, personal training e pacchetti personalizzati.">
   <meta property="og:image" content="/static/images/logo.png">
   <meta property="og:type" content="website">
   <meta name="robots" content="index, follow">
+
   <link rel="preload" href="/static/style.css" as="style">
-
   <link rel="icon" type="image/webp" href="/static/images/logo.webp">
+  <title>Buono Regalo - Therapyou</title>
 
-  <title>Therapyou - osteopatia e personal training studio</title>
-
-  <!-- CSS principale -->
   <link rel="stylesheet" href="/static/style.css">
-
-  <!-- Icone Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -27,140 +23,155 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="logo">
-      <a href="/">
-        <img src="/static/images/logo.webp" alt="Logo Therapyou" class="logo" loading="lazy">
-      </a>
+      <a href="/"><img src="/static/images/logo.webp" alt="Logo Therapyou" class="logo" loading="lazy"></a>
     </div>
-    <div class="logo-line">|</div>
+
+    <div class="logo-line" aria-hidden="true">|</div>
+
     <div class="therapyou">
-        <a href="/">
-      <h1>THERAPYOU</h1>
-      <h4>OSTEOPATIA E PERSONAL TRAINING STUDIO</h4>
+      <a href="/">
+        <h1>THERAPYOU</h1>
+        <h4>OSTEOPATIA E PERSONAL TRAINING STUDIO</h4>
       </a>
     </div>
 
-    <nav class="main-nav">
-      <div class="social"> 
-        <a href="https://wa.me/393514110262" target="_blank" aria-label="WhatsApp">
-          <i class="fa-brands fa-whatsapp"></i>
-        </a>
-        <a href="https://www.instagram.com/studio_therapyou/" target="_blank" aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.tiktok.com/@studio_therapyou" target="_blank" aria-label="TikTok">
-          <i class="fa-brands fa-tiktok"></i>
-        </a>
+    <nav class="main-nav" aria-label="Navigazione principale">
+      <div class="social">
+        <a href="https://wa.me/393514110262" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/studio_therapyou/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@studio_therapyou" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
       </div>
 
       <div class="dropdown">
-        <button id="menu-toggle-btn" class="dropbtn" aria-controls="side-menu" aria-expanded="false" aria-label="Apri Menu di Navigazione">
+        <button id="menu-toggle-btn" class="dropbtn" aria-controls="side-menu" aria-expanded="false" aria-label="Apri menu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
-      </div>
     </nav>
-
-
   </header>
 
   <!-- CONTENUTO PRINCIPALE -->
   <main>
-    <div class="top-container">
+    <!-- TITOLO SEMPLICE -->
+    <section class="top-container">
       <div class="top-title reveal-item">
         <h1>Buono regalo e promozioni</h1>
       </div>
-    </div>
+    </section>
 
-  <div class="main-container">
-        <div class="main-column reveal-item">
-          <details class="toggle-container">
-            <summary>
-              <h3>REGALA UN BUONO PER NATALE</h3>
-              <img src="/static/images/santa-removebg-preview.webp" id="santa" alt="Santa Claus in palestra" loading="lazy">
-            </summary>
-            <p class="toggle-text"> 
-              Scegli tra sedute di osteopatia o pacchetti di personal training e regala salute, energia e movimento. 
-              Offriamo buoni regalo personalizzati, facili da usare e validi per tutto il nuovo anno.
-              Un'idea originale per sorprendere e dare un regalo davvero utile e prezioso.</p>
-              <a href="/contatti/" class="whatsapp-btn">Richiedi il tuo Buono Regalo</a>
-            </p>
-          </details>
-        </div>
+    <!-- SEZIONE PROMO E REGALO -->
+    <section class="main-container">
+      
+      <!-- Buono Natale -->
+      <article class="main-column reveal-item">
+        <details class="toggle-container">
+          <summary>
+            <h3>Regala un Buono per Natale</h3>
+            <img src="/static/images/santa-removebg-preview.webp" id="santa" alt="Santa Claus in palestra" loading="lazy">
+          </summary>
 
-        <div class="main-column reveal-item">
-          <details class="toggle-container">
-            <summary>
-              <h3>APPROFITTA DELLA PROMO APERTURA</h3>
-              <img src="/static/images/sfondo-removebg-preview.webp" alt="apertura studio" loading="lazy">
-            </summary>
-            <p class="toggle-text">
-              Vieni a conoscerci! Valutazione e consulenza gratuita per scoprire il percorso più adatto a te.
-              Approfitta di uno sconto del 15% sul tuo primo trattamento osteopatico o scegli il tuo primo pacchetto di personal training con il 20% di sconto! 
-              È il momento giusto per iniziare il tuo percorso di salute, benessere e performance.</p>
-              <a href="/contatti/" class="whatsapp-btn">Prenota Ora</a>
+          <div class="toggle-text">
+            <p class="just">
+              Scegli tra sedute di osteopatia o pacchetti di personal training e regala salute, energia e movimento.  
+              I nostri buoni regalo sono personalizzati, semplici da utilizzare e validi per tutto il nuovo anno.
+              Un'idea originale e utile per sorprendere qualcuno a cui tieni davvero.
             </p>
-          </details>
-        </div>
+
+            <a href="/contatti/" class="whatsapp-btn">Richiedi il tuo Buono Regalo</a>
+          </div>
+        </details>
+      </article>
+
+      <!-- Promo apertura -->
+      <article class="main-column reveal-item">
+        <details class="toggle-container">
+          <summary>
+            <h3>Approfitta della Promo Apertura</h3>
+            <img src="/static/images/sfondo-removebg-preview.webp" alt="apertura studio" loading="lazy">
+          </summary>
+
+          <div class="toggle-text">
+            <p class="just">
+              Vieni a conoscerci! Valutazione e consulenza gratuita per trovare il percorso più adatto a te.  
+              Approfitta di:
+            </p>
+
+            <p class="just">
+              <strong>• 15% di sconto</strong> sul tuo primo trattamento osteopatico  
+              <br><strong>• 20% di sconto</strong> sul tuo primo pacchetto di personal training
+            </p>
+
+            <p class="just">È il momento perfetto per iniziare il tuo percorso di benessere e performance.</p>
+            <a href="/contatti/" class="whatsapp-btn">Prenota ora</a>
+          </div>
+        </details>
+      </article>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti" class="contact-container reveal-item" aria-labelledby="contatti-titolo">
+      <h2 id="contatti-titolo">Contattaci</h2>
+      <p>Hai domande o vuoi prenotare un appuntamento gratuito?</p>
+      <p>Contattaci direttamente su WhatsApp, chiamaci oppure scrivici una mail!</p>
+
+      <div class="whatsapp-contact">
+        <a href="tel:+393514110262" class="whatsapp-btn">
+          <i class="fa-solid fa-phone"></i> Chiamaci
+        </a>
+
+        <a href="https://wa.me/393514110262" target="_blank" class="whatsapp-btn">
+          <i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp
+        </a>
+
+        <a href="mailto:studiotherapyou@gmail.com" class="whatsapp-btn">
+          <i class="fa-regular fa-envelope"></i> Mandaci un'e-mail
+        </a>
       </div>
-      <section id="contatti" class="contact-container reveal-item">
-        <h2>Contattaci</h2>
-        <p>Hai domande o vuoi prenotare un appuntamento gratuito?</p>
-        <p>Contattaci direttamente su WhatsApp, chiamaci oppure mandaci una mail! </p>
-
-          <div class="whatsapp-contact">
-          <a href="tel:+393514110262" target="_blank" class="whatsapp-btn">
-            <i class="fa-solid fa-phone"></i> Chiamaci
-          </a>  
-          <a href="https://wa.me/393514110262" target="_blank" class="whatsapp-btn"> 
-              <i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp
-          </a>          
-          <a href="mailto:studiotherapyou@gmail.com" target="_blank" class="whatsapp-btn">
-                <i class="fa-regular fa-envelope"></i> Mandaci un'e-mail
-          </a>
-            </div>
-        
-      </section> 
+    </section>
   </main>
-
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-box">
       <div>
-        <p><a class="f-links" href="mailto:studiotherapyou@gmail.com"> 
-          <i class="fa-solid fa-envelope"></i> studiotherapyou@gmail.com
-        </a></p>
-        <p><a class="f-links" href="tel:+393514110262">
-          <i class="fa-solid fa-phone"></i>  +393514110262
-        </a></p>
+        <p><a class="f-links" href="mailto:studiotherapyou@gmail.com"><i class="fa-solid fa-envelope"></i> studiotherapyou@gmail.com</a></p>
+        <p><a class="f-links" href="tel:+393514110262"><i class="fa-solid fa-phone"></i> +39 351 411 0262</a></p>
       </div>
+
       <div>
-        <p><i class="fa-solid fa-clock"></i> Lun-Ven 7.30-20
-        Sab 9-13</p>
+        <p><i class="fa-solid fa-clock"></i> Lun–Ven 7.30–20 · Sab 9–13</p>
         <p>Si riceve solo su appuntamento</p>
       </div>
+
       <div>
-        <p><a class="f-links" href="https://www.google.com/maps/place/Therapyou+-+osteopatia+e+personal+training+studio/@44.9966622,7.6989607,17z/data=!3m1!4b1!4m6!3m5!1s0x47880d0018e3f9a5:0x7aa74052002506fd!8m2!3d44.9966622!4d7.7015356!16s%2Fg%2F11zjvbvbyp?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D">
-          <i class="fa-solid fa-location-dot"></i> Via G. Deledda 18, Moncalieri (TO)
-        </a></p>
+        <p>
+          <a class="f-links" href="https://www.google.com/maps/place/Therapyou+-+osteopatia+e+personal+training+studio/">
+            <i class="fa-solid fa-location-dot"></i> Via G. Deledda 18, Moncalieri (TO)
+          </a>
+        </p>
         <p>P.IVA 12946540015</p>
       </div>
     </div>
+
     <div class="footer-last">
       <p>&copy; 2025 Therapyou — un percorso di benessere completo</p>
-    </div>        
+    </div>
   </footer>
 
   <div class="empty" id="empty"></div>
 
-    <!--menu-->
-  <nav id="side-menu" class="side-menu">
+  <!-- MENU LATERALE -->
+    <nav id="side-menu" class="side-menu">
     <button id="close-menu-btn" class="close-btn">&times;</button>
     <div class="menu-links">
       <a href="/">Home</a>
-      <a href="/servizi/">Tutti i servizi</a>
-      <a href="/osteopatia/">Osteopatia</a>
 <div class="submenu-container">
+  <button class="submenu-toggle" aria-expanded="false" aria-controls="sub-servizi">Servizi<i class="fa-solid fa-chevron-down"></i></button>
+  <div id="sub-servizi" class="submenu-content" hidden>
+    <a href="/servizi/">Tutti i servizi</a>
+      <a href="/osteopatia/">Osteopatia</a>
+
+    <div class="submenu-container">
     <button class="submenu-toggle" aria-expanded="false" aria-controls="sub-servizi-pt">Personal Training<i class="fa-solid fa-chevron-down"></i></button>
     <div id="sub-servizi-pt" class="submenu-content" hidden>
         <a href="/personal-training/">Allenamento individuale</a>
@@ -184,6 +195,8 @@
         <a href="/riatletizzazione/">Riatletizzazione</a>
     </div>
 </div>
+  </div> 
+</div>
   <a href="/team/">Team</a>
   <a href="/buono-regalo/">Buono Regalo</a>
   <a href="/orari/">Orari</a>
@@ -202,14 +215,11 @@
     </div>
   </nav>
 
-
-  <!-- Pulsante WhatsApp fluttuante -->
+  <!-- WHATSAPP FLOAT -->
   <a href="https://wa.me/393514110262" class="whatsapp-float" target="_blank" aria-label="Chatta su WhatsApp">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
-  
-<script src="/static/script.js"></script>
+
+  <script src="/static/script.js"></script>
 </body>
 </html>
-
-

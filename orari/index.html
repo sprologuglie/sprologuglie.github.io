@@ -141,9 +141,13 @@
     <button id="close-menu-btn" class="close-btn">&times;</button>
     <div class="menu-links">
       <a href="/">Home</a>
-      <a href="/servizi/">Tutti i servizi</a>
-      <a href="/osteopatia/">Osteopatia</a>
 <div class="submenu-container">
+  <button class="submenu-toggle" aria-expanded="false" aria-controls="sub-servizi">Servizi<i class="fa-solid fa-chevron-down"></i></button>
+  <div id="sub-servizi" class="submenu-content" hidden>
+    <a href="/servizi/">Tutti i servizi</a>
+      <a href="/osteopatia/">Osteopatia</a>
+
+    <div class="submenu-container">
     <button class="submenu-toggle" aria-expanded="false" aria-controls="sub-servizi-pt">Personal Training<i class="fa-solid fa-chevron-down"></i></button>
     <div id="sub-servizi-pt" class="submenu-content" hidden>
         <a href="/personal-training/">Allenamento individuale</a>
@@ -166,6 +170,8 @@
         <a href="/preparazione-atletica/">Preparazione atletica</a>
         <a href="/riatletizzazione/">Riatletizzazione</a>
     </div>
+</div>
+  </div> 
 </div>
   <a href="/team/">Team</a>
   <a href="/buono-regalo/">Buono Regalo</a>

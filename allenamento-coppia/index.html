@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Studio Therapyou - osteopatia e personal training a Moncalieri. Trattamenti e allenamenti personalizzati per salute e benessere fisico completo">
-  <meta property="og:title" content="Therapyou - osteopatia e personal training">
-  <meta property="og:description" content="Studio Therapyou: trattamenti di osteopatia e percorsi di allenamento personalizzati.">
+  <meta name="description" content="Allenamento di coppia personalizzato nello studio Therapyou a Moncalieri. Percorsi su misura per coppie, amici o colleghi.">
+  <meta property="og:title" content="Allenamento di coppia - Therapyou">
+  <meta property="og:description" content="Studio Therapyou: allenamento di coppia personalizzato in un ambiente moderno e riservato.">
   <meta property="og:image" content="/static/images/logo.png">
   <meta property="og:type" content="website">
   <meta name="robots" content="index, follow">
@@ -13,12 +13,12 @@
 
   <link rel="icon" type="image/webp" href="/static/images/logo.webp">
 
-  <title>Therapyou - osteopatia e personal training studio</title>
+  <title>Allenamento di coppia - Therapyou | Personal training a Moncalieri</title>
 
   <!-- CSS principale -->
   <link rel="stylesheet" href="/static/style.css">
 
-  <!-- Icone Font Awesome -->
+  <!-- Font & Icone -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -31,16 +31,18 @@
         <img src="/static/images/logo.webp" alt="Logo Therapyou" class="logo" loading="lazy">
       </a>
     </div>
-    <div class="logo-line">|</div>
+
+    <div class="logo-line" aria-hidden="true">|</div>
+
     <div class="therapyou">
-        <a href="/">
-      <h1>THERAPYOU</h1>
-      <h4>OSTEOPATIA E PERSONAL TRAINING STUDIO</h4>
+      <a href="/">
+        <h1>THERAPYOU</h1>
+        <h4>OSTEOPATIA E PERSONAL TRAINING STUDIO</h4>
       </a>
     </div>
 
-    <nav class="main-nav">
-      <div class="social"> 
+    <nav class="main-nav" aria-label="Navigazione principale">
+      <div class="social">
         <a href="https://wa.me/393514110262" target="_blank" aria-label="WhatsApp">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
@@ -53,163 +55,276 @@
       </div>
 
       <div class="dropdown">
-        <button id="menu-toggle-btn" class="dropbtn" aria-controls="side-menu" aria-expanded="false" aria-label="Apri Menu di Navigazione">
+        <button
+          id="menu-toggle-btn"
+          class="dropbtn"
+          aria-controls="side-menu"
+          aria-expanded="false"
+          aria-label="Apri menu di navigazione"
+        >
           <i class="fa-solid fa-bars"></i>
         </button>
-      </div>
       </div>
     </nav>
   </header>
 
   <!-- CONTENUTO PRINCIPALE -->
-<main>
-  <div class="main-glass">  
-
-    <div class="top-container">
+  <main>
+    <div class="main-glass">
+      <!-- HERO / TITOLO PAGINA -->
+      <section class="top-container" aria-labelledby="titolo-allenamento-coppia">
         <div class="top-title reveal-item servizi-top">
-            <h1><i class="fa-solid fa-people-pulling icon"></i>allenamento di coppia<i class="fa-solid fa-people-pulling icon"></i></h1>
+          <h1 id="titolo-allenamento-coppia">
+            <i class="fa-solid fa-people-pulling icon" aria-hidden="true"></i>
+            Allenamento di coppia
+            <i class="fa-solid fa-people-pulling icon" aria-hidden="true"></i>
+          </h1>
         </div>
-    </div>
-
-
-    <div class="top-container">
-      <div class="top-title reveal-item">
-        <h2>DA THERAPYOU</h2>
-        <p class="just">
-          Da noi l'allenamento di coppia viene costruito dopo una valutazione iniziale di entrambi, così da capire i punti di partenza e gli obiettivi personali. 
-          Che siate una coppia, amici, familiari o colleghi, l'allenamento mantiene sempre qualità, attenzione e personalizzazione, pur condividendo tempo, impegno e motivazione.
-          Il nostro ambiente riservato permette di allenarsi in tranquillità, senza distrazioni, accompagnati passo dopo passo da un professionista che adatta ogni seduta alle esigenze del momento.
-        </p>
-      </div> 
-    </div>
-
-    <div class="top-container">
-      <div class="top-title reveal-item">
-          <h3>A CHI È ADATTO</h3>
-          <p class="just"><i class="fa-solid fa-heart icon-list"></i> Coppie che vogliono allenarsi insieme</p>
-          <p class="just"><i class="fa-solid fa-people-group icon-list"></i> Amici o colleghi motivati</p>
-          <p class="just"><i class="fa-solid fa-hand-fist icon-list"></i> Chi cerca un percorso più economico</p>
-          <p class="just"><i class="fa-solid fa-face-smile-beam icon-list"></i> Persone che vogliono divertirsi allenandosi</p>
-          <p class="just"><i class="fa-solid fa-check icon-list"></i> Chi vuole supporto reciproco e continuità</p>
-      </div>
-
-      <div class="top-title reveal-item">
-        <h3>COSA OFFRIAMO</h3>
-        <p class="just"><i class="fa-solid fa-clipboard-user icon-list"></i> Valutazione iniziale di entrambi</p>
-        <p class="just"><i class="fa-solid fa-person-running icon-list"></i> Programmi personalizzati, non generalizzati</p>
-        <p class="just"><i class="fa-solid fa-dumbbell icon-list"></i> Allenamenti motivanti e vari</p>
-        <p class="just"><i class="fa-solid fa-house-user icon-list"></i> Ambiente tranquillo e riservato</p>
-        <p class="just"><i class="fa-solid fa-medal icon-list"></i> Progressione monitorata nel tempo</p>
-      </div>
-    </div>
-
-      <section id="contatti" class="contact-container reveal-item">
-        <h2>Contattaci</h2>
-        <p>Hai domande o vuoi prenotare un appuntamento gratuito?</p>
-        <p>Contattaci direttamente su WhatsApp, chiamaci oppure mandaci una mail! </p>
-
-          <div class="whatsapp-contact">
-          <a href="tel:+393514110262" target="_blank" class="whatsapp-btn">
-            <i class="fa-solid fa-phone"></i> Chiamaci
-          </a>  
-          <a href="https://wa.me/393514110262" target="_blank" class="whatsapp-btn"> 
-              <i class="fa-brands fa-whatsapp"></i> Scrivici su WhatsApp
-          </a>          
-          <a href="mailto:studiotherapyou@gmail.com" target="_blank" class="whatsapp-btn">
-                <i class="fa-regular fa-envelope"></i> Mandaci un'e-mail
-          </a>
-            </div>
-        
       </section>
 
-  </div>  
-</main>
+      <!-- SEZIONE: COSA FACCIAMO -->
+      <section class="top-container" aria-labelledby="da-therapyou">
+        <article class="top-title reveal-item">
+          <h2 id="da-therapyou">Da Therapyou</h2>
+          <p class="just">
+            Da noi l'allenamento di coppia viene costruito dopo una valutazione iniziale di entrambi, così da capire i
+            punti di partenza e gli obiettivi personali. Che siate una coppia, amici, familiari o colleghi,
+            l'allenamento mantiene sempre qualità, attenzione e personalizzazione, pur condividendo tempo, impegno e
+            motivazione.
+          </p>
+          <p class="just">
+            Il nostro ambiente riservato permette di allenarsi in tranquillità, senza distrazioni, accompagnati passo
+            dopo passo da un professionista che adatta ogni seduta alle esigenze del momento.
+          </p>
+        </article>
+      </section>
 
+      <!-- SEZIONE: A CHI È ADATTO / COSA OFFRIAMO -->
+      <section class="top-container" aria-label="Dettagli allenamento di coppia">
+        <article class="top-title reveal-item">
+          <h3>A chi è adatto</h3>
+          <p class="just">
+            <i class="fa-solid fa-heart icon-list" aria-hidden="true"></i>
+            Coppie che vogliono allenarsi insieme
+          </p>
+          <p class="just">
+            <i class="fa-solid fa-people-group icon-list" aria-hidden="true"></i>
+            Amici o colleghi motivati
+          </p>
+          <p class="just">
+            <i class="fa-solid fa-hand-fist icon-list" aria-hidden="true"></i>
+            Chi cerca un percorso più economico
+          </p>
+          <p class="just">
+            <i class="fa-solid fa-face-smile-beam icon-list" aria-hidden="true"></i>
+            Persone che vogliono divertirsi allenandosi
+          </p>
+          <p class="just">
+            <i class="fa-solid fa-check icon-list" aria-hidden="true"></i>
+            Chi vuole supporto reciproco e continuità
+          </p>
+        </article>
+
+        <article class="top-title reveal-item">
+          <h3>Cosa offriamo</h3>
+          <p class="just">
+            <i class="fa-solid fa-clipboard-user icon-list" aria-hidden="true"></i>
+            Valutazione iniziale di entrambi
+          </p>
+          <p class="just">
+            <i class="fa-solid fa-person-running icon-list" aria-hidden="true"></i>
+            Programmi personalizzati, non generalizzati
+          </p>
+          <p class="just">
+            <i class="fa-solid fa-dumbbell icon-list" aria-hidden="true"></i>
+            Allenamenti motivanti e vari
+          </p>
+          <p class="just">
+            <i class="fa-solid fa-house-user icon-list" aria-hidden="true"></i>
+            Ambiente tranquillo e riservato
+          </p>
+          <p class="just">
+            <i class="fa-solid fa-medal icon-list" aria-hidden="true"></i>
+            Progressione monitorata nel tempo
+          </p>
+        </article>
+      </section>
+
+      <!-- SEZIONE CONTATTI -->
+      <section id="contatti" class="contact-container reveal-item" aria-labelledby="contatti-titolo">
+        <h2 id="contatti-titolo">Contattaci</h2>
+        <p>Hai domande o vuoi prenotare un appuntamento gratuito?</p>
+        <p>Contattaci direttamente su WhatsApp, chiamaci oppure mandaci una mail!</p>
+
+        <div class="whatsapp-contact">
+          <a href="tel:+393514110262" class="whatsapp-btn">
+            <i class="fa-solid fa-phone" aria-hidden="true"></i>
+            Chiamaci
+          </a>
+
+          <a href="https://wa.me/393514110262" target="_blank" class="whatsapp-btn">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+            Scrivici su WhatsApp
+          </a>
+
+          <a href="mailto:studiotherapyou@gmail.com" class="whatsapp-btn">
+            <i class="fa-regular fa-envelope" aria-hidden="true"></i>
+            Mandaci un'e-mail
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-box">
       <div>
-        <p><a class="f-links" href="mailto:studiotherapyou@gmail.com"> 
-          <i class="fa-solid fa-envelope"></i> studiotherapyou@gmail.com
-        </a></p>
-        <p><a class="f-links" href="tel:+393514110262">
-          <i class="fa-solid fa-phone"></i>  +393514110262
-        </a></p>
+        <p>
+          <a class="f-links" href="mailto:studiotherapyou@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            studiotherapyou@gmail.com
+          </a>
+        </p>
+        <p>
+          <a class="f-links" href="tel:+393514110262">
+            <i class="fa-solid fa-phone"></i>
+            +39 351 411 0262
+          </a>
+        </p>
       </div>
+
       <div>
-        <p><i class="fa-solid fa-clock"></i> Lun-Ven 7.30-20
-        Sab 9-13</p>
+        <p>
+          <i class="fa-solid fa-clock"></i>
+          Lun–Ven 7.30–20 · Sab 9–13
+        </p>
         <p>Si riceve solo su appuntamento</p>
       </div>
+
       <div>
-        <p><a class="f-links" href="https://www.google.com/maps/place/Therapyou+-+osteopatia+e+personal+training+studio/@44.9966622,7.6989607,17z/data=!3m1!4b1!4m6!3m5!1s0x47880d0018e3f9a5:0x7aa74052002506fd!8m2!3d44.9966622!4d7.7015356!16s%2Fg%2F11zjvbvbyp?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D">
-          <i class="fa-solid fa-location-dot"></i> Via G. Deledda 18, Moncalieri (TO)
-        </a></p>
+        <p>
+          <a
+            class="f-links"
+            href="https://www.google.com/maps/place/Therapyou+-+osteopatia+e+personal+training+studio/@44.9966622,7.6989607,17z/data=!3m1!4b1!4m6!3m5!1s0x47880d0018e3f9a5:0x7aa74052002506fd!8m2!3d44.9966622!4d7.7015356!16s%2Fg%2F11zjvbvbyp?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+          >
+            <i class="fa-solid fa-location-dot"></i>
+            Via G. Deledda 18, Moncalieri (TO)
+          </a>
+        </p>
         <p>P.IVA 12946540015</p>
       </div>
     </div>
+
     <div class="footer-last">
       <p>&copy; 2025 Therapyou — un percorso di benessere completo</p>
-    </div>        
+    </div>
   </footer>
 
   <div class="empty" id="empty"></div>
 
-    <!--menu-->
-  <nav id="side-menu" class="side-menu">
-    <button id="close-menu-btn" class="close-btn">&times;</button>
+  <!-- MENU LATERALE (off-canvas, versione uniforme con la home) -->
+  <nav id="side-menu" class="side-menu" aria-label="Menu laterale">
+    <button id="close-menu-btn" class="close-btn" aria-label="Chiudi menu">&times;</button>
+
     <div class="menu-links">
       <a href="/">Home</a>
-      <a href="/servizi/">Tutti i servizi</a>
-      <a href="/osteopatia/">Osteopatia</a>
-<div class="submenu-container">
-    <button class="submenu-toggle" aria-expanded="false" aria-controls="sub-servizi-pt">Personal Training<i class="fa-solid fa-chevron-down"></i></button>
-    <div id="sub-servizi-pt" class="submenu-content" hidden>
-        <a href="/personal-training/">Allenamento individuale</a>
-        <a href="/allenamento-coppia/">Allenamento di coppia</a>
-    </div>
-</div>
 
-<div class="submenu-container">
-    <button class="submenu-toggle" aria-expanded="false" aria-controls="sub-servizi-chin">Chinesiologia<i class="fa-solid fa-chevron-down"></i></button>
-    <div id="sub-servizi-chin" class="submenu-content" hidden>
-        <a href="/ginnastica-posturale/">Ginnastica posturale</a>
-        <a href="/ginnastica-pre-post-parto/">Ginnastica pre e post parto</a>
-        <a href="/rieducazione-funzionale/">Rieducazione funzionale</a>
-    </div>
-</div>
+      <div class="submenu-container">
+        <button
+          class="submenu-toggle"
+          aria-expanded="false"
+          aria-controls="sub-servizi"
+        >
+          Servizi
+          <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+        </button>
 
-<div class="submenu-container">
-    <button class="submenu-toggle" aria-expanded="false" aria-controls="sub-servizi-perf">Performance sportiva<i class="fa-solid fa-chevron-down"></i></button>
-    <div id="sub-servizi-perf" class="submenu-content" hidden>
-        <a href="/preparazione-atletica/">Preparazione atletica</a>
-        <a href="/riatletizzazione/">Riatletizzazione</a>
+        <div id="sub-servizi" class="submenu-content" hidden>
+          <a href="/servizi/">Tutti i servizi</a>
+          <a href="/osteopatia/">Osteopatia</a>
+
+          <div class="submenu-container">
+            <button
+              class="submenu-toggle"
+              aria-expanded="false"
+              aria-controls="sub-servizi-pt"
+            >
+              Personal Training
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div id="sub-servizi-pt" class="submenu-content" hidden>
+              <a href="/personal-training/">Allenamento individuale</a>
+              <a href="/allenamento-coppia/">Allenamento di coppia</a>
+            </div>
+          </div>
+
+          <div class="submenu-container">
+            <button
+              class="submenu-toggle"
+              aria-expanded="false"
+              aria-controls="sub-servizi-chin"
+            >
+              Chinesiologia
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div id="sub-servizi-chin" class="submenu-content" hidden>
+              <a href="/ginnastica-posturale/">Ginnastica posturale</a>
+              <a href="/ginnastica-pre-post-parto/">Ginnastica pre e post parto</a>
+              <a href="/rieducazione-funzionale/">Rieducazione funzionale</a>
+            </div>
+          </div>
+
+          <div class="submenu-container">
+            <button
+              class="submenu-toggle"
+              aria-expanded="false"
+              aria-controls="sub-servizi-perf"
+            >
+              Performance sportiva
+              <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <div id="sub-servizi-perf" class="submenu-content" hidden>
+              <a href="/preparazione-atletica/">Preparazione atletica</a>
+              <a href="/riatletizzazione/">Riatletizzazione</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="/team/">Team</a>
+      <a href="/buono-regalo/">Buono Regalo</a>
+      <a href="/orari/">Orari</a>
+      <a href="/contatti/">Contatti</a>
     </div>
-</div>
-  <a href="/team/">Team</a>
-  <a href="/buono-regalo/">Buono Regalo</a>
-  <a href="/orari/">Orari</a>
-  <a href="/contatti/">Contatti</a>
-    </div>
+
     <div class="menu-social">
-        <a href="https://wa.me/393514110262" target="_blank" aria-label="WhatsApp">
-          <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-        <a href="https://www.instagram.com/studio_therapyou/" target="_blank" aria-label="Instagram">
-          <i class="fa-brands fa-instagram"></i> Instagram
-        </a>
-        <a href="https://www.tiktok.com/@studio_therapyou" target="_blank" aria-label="TikTok">
-          <i class="fa-brands fa-tiktok"></i> TikTok
-        </a>
+      <a href="https://wa.me/393514110262" target="_blank" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        WhatsApp
+      </a>
+      <a href="https://www.instagram.com/studio_therapyou/" target="_blank" aria-label="Instagram">
+        <i class="fa-brands fa-instagram"></i>
+        Instagram
+      </a>
+      <a href="https://www.tiktok.com/@studio_therapyou" target="_blank" aria-label="TikTok">
+        <i class="fa-brands fa-tiktok"></i>
+        TikTok
+      </a>
     </div>
   </nav>
 
   <!-- Pulsante WhatsApp fluttuante -->
-  <a href="https://wa.me/393514110262" class="whatsapp-float" target="_blank" aria-label="Chatta su WhatsApp">
+  <a
+    href="https://wa.me/393514110262"
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="Chatta su WhatsApp"
+  >
     <i class="fa-brands fa-whatsapp"></i>
   </a>
-  
-<script src="/static/script.js"></script>
+
+  <script src="/static/script.js"></script>
 </body>
 </html>

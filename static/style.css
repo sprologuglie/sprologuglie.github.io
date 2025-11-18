@@ -3,8 +3,7 @@
     /* Colori */
     --color-primary: #8ea376; /* Verde/Menta principale (header text, bottoni) */
     --color-secondary: #e8ded5; /* Sfondo Header e Footer */
-    --color-text-light: #000000; /* Testo chiaro (Body, Home Cards) */
-    --color-text-dark: #000000; /* Testo scuro (Footer, elementi a contrasto) */
+    --color-text-dark: #000000; /* Testo nero (Body, Home Cards) */
     --color-whatsapp: #25d366; /* Verde WhatsApp */
     --color-whatsapp-hover: #20b358;
     --color-dropdown-hover: #f0f9ff51;
@@ -14,13 +13,8 @@
     --bg-blur-card: #f0f0f01b; /* Sfondo semi-trasparente per le card */
 
     /* Ombre */
-    --shadow-header: 0 2px 8px rgba(0,0,0,0.05);
-    --shadow-logo: 0 2px 6px rgba(0,0,0,0.1);
-    --shadow-dropdown: 0 8px 16px rgba(0,0,0,0.1);
-    --shadow-card-md: 0 4px 10px rgba(0, 0, 0, 0.1);
-    --shadow-card-lg: 0 6px 16px rgba(0, 0, 0, 0.15); /* Hover card */
-    --shadow-whatsapp: 0 2px 5px rgba(0, 0, 0, 0.3);
-    --shadow-whatsapp-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
+    --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* === BASE STYLES === */
@@ -49,7 +43,7 @@ body {
     
     /* Typography & Color */
     font-weight: 500;
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
 }
 
 main {
@@ -61,6 +55,25 @@ main {
 button, a {
     color: #000000;
 }
+
+.just {
+    text-align: justify;
+}
+
+/* Nasconde inizialmente tutte le card che devono apparire con l'animazione */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(20px); /* Leggero spostamento verso il basso */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: 0.1s; /* Leggero ritardo per creare un effetto a cascata */
+}
+
+/* Stato finale: Visibile */
+.reveal-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* === HEADER (Intestazione) === */
 
 
@@ -71,7 +84,7 @@ button, a {
     padding: 15px 40px;
     background-color: var(--bg-blur-card);
     backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-header);
+    box-shadow: var(--shadow);
     border-radius: 12px;
     margin: 10px;
     z-index: 100;
@@ -80,7 +93,7 @@ button, a {
 .logo {
     height: 50px;
     border-radius: 12px;
-    box-shadow: var(--shadow-logo);
+    box-shadow: var(--shadow);
     transition: transform 0.3s ease;
 }
 
@@ -139,32 +152,29 @@ button, a {
 }
 
 
+/* --- MENU OFF-CANVAS (Side Menu) --- */
 
+/* 1. ACCESSIBILITÀ MODERNA (:focus-visible)
+   Sostituisce la logica JS .mouse-user. 
+   L'outline appare SOLO se si naviga con TAB/Tastiera.
+*/
 
-/* ---  MENU OFF-CANVAS (Side Menu) --- */
-
-/* --- ACCESSIBILITÀ: Nasconde il Focus Ring se l'utente usa il Mouse --- */
-
-/* La classe mouse-user viene aggiunta al body da JS dopo il primo mouse-move */
-.mouse-user :focus {
-    /* Rimuove completamente l'outline/box-shadow del focus */
-    outline: none !important;
-    box-shadow: none !important;
+/* Reset per tutti, rimuove outline al click del mouse */
+:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
 }
 
-/* ECCEZIONE: Se l'utente usa TAB (ovvero non ha mosso il mouse di recente) */
-/* Riapplica il focus personalizzato solo per la navigazione da tastiera */
-body:not(.mouse-user) #menu-toggle-btn:focus, 
-body:not(.mouse-user) .close-btn:focus, 
-body:not(.mouse-user) .menu-links a:focus, 
-body:not(.mouse-user) .menu-social a:focus {
-    /* Ri-usa il tuo stile di focus personalizzato (solo per TAB) */
+/* Stile Focus per navigazione tastiera (Tab) */
+:focus-visible {
+    outline: none;
     box-shadow: 0 0 0 3px var(--color-text-dark), 
-                0 0 0 5px white; 
+                0 0 0 5px white;
     border-radius: 3px;
+    z-index: 10; /* Assicura che il ring sia sopra altri elementi */
 }
 
-/* Base: menu nascosto a destra */
+/* --- STRUTTURA MENU --- */
 
 .dropbtn {
     background: none;
@@ -172,36 +182,50 @@ body:not(.mouse-user) .menu-social a:focus {
     font-size: 1.5rem;
     cursor: pointer;
     transition: transform 0.3s ease;
+    /* Colore esplicito consigliato */
+    color: var(--color-text-dark); 
 }
 
-.dropbtn:hover{
+.dropbtn:hover {
     transform: translateY(-3px);
 }
 
 .side-menu {
     position: fixed;
     top: 0;
-    right: -1000px; /* Nasconde il menu fuori dallo schermo */
+    right: 0; /* Ancorato a destra */
     width: 280px;
-    height: 85%;
-    padding: 20px;
+    height: 85%; /* Considera usare 100vh se vuoi coprire tutto */
+    margin: 10px; /* Margine esterno */
+    padding: 60px 20px 20px 20px; /* Padding accorpato */
+    
+    /* Stile Visivo */
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(25px); /* Usa il tuo colore principale per contrasto */
+    backdrop-filter: blur(25px);
     border-radius: 15px;
-    margin: 10px;
     box-shadow: -4px 0 15px rgba(0, 0, 0, 0.2);
-    z-index: 1500; /* Assicurati che sia sopra ogni cosa */
+    z-index: 1500;
+    
+    /* Scroll */
     overflow-y: auto;
-    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Effetto scorrimento */
+    /* Nasconde la scrollbar su Firefox */
+    scrollbar-width: thin; 
+    
+    /* ANIMAZIONE GPU (Più performante di 'right') */
+    transform: translateX(calc(100% + 20px)); /* 100% larghezza + margine */
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    visibility: hidden; /* Nasconde agli screen reader quando chiuso */
+
+    /* Layout Flex */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-top: 60px;
 }
 
 /* Stato Attivo: menu visibile */
 .side-menu.active {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
 }
 
 /* Pulsante Chiudi */
@@ -215,12 +239,14 @@ body:not(.mouse-user) .menu-social a:focus {
     color: var(--color-text-dark);
     cursor: pointer;
     line-height: 1;
+    padding: 0; /* Reset padding */
 }
 
-/* Stili Link di Navigazione */
+/* --- STILI LINK NAVIGAZIONE --- */
+
 .menu-links a {
-    background-color: var(--bg-blur-card);
-    backdrop-filter: blur(5px);
+    /* Rimossa backdrop-filter qui per performance */
+    background-color: rgba(255, 255, 255, 0.1); /* Leggero sfondo invece del blur */
     color: var(--color-text-dark);
     padding: 12px 10px;
     text-decoration: none;
@@ -228,81 +254,31 @@ body:not(.mouse-user) .menu-social a:focus {
     font-size: 1.1rem;
     font-weight: 500;
     border-bottom: 1px solid var(--color-dropdown-hover);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     border-radius: 15px;
-    margin-bottom: 2px;
-}
-
-
-
-.menu-links a:hover, .submenu-container:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-card-lg);
-}
-
-/* Stili Social all'interno del menu */
-.menu-social {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-    border-top: 2px solid var(--color-text-dark);
-    margin-top: 20px;
-}
-
-.menu-social a {
-    color: var(--color-text-dark);
-    font-size: 1rem;
-    padding: 10px;
-    text-align: left;
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.menu-social a:hover {
-    transform: translateY(-3px);
-}
-.menu-social i {
-    font-size: 1.3rem;
-    width: 30px; /* Per allineare il testo */
-}
-
-/* Rimuovi scroll dal body quando il menu è attivo */
-body.menu-open {
-    overflow: hidden;
-}
-
-/* Assicurati che il focus sia sempre visibile */
-.menu-links a:focus,
-.menu-social a:focus,
-.close-btn:focus,
-#menu-toggle-btn:focus {
-    /* Rimuove il focus di default del browser e ne crea uno personalizzato */
-    outline: 0; 
+    margin-bottom: 4px; /* Spaziatura leggermente aumentata */
     
-    /* Stile personalizzato per l'anello di focus */
-    box-shadow: 0 0 0 3px var(--color-text-dark), /* Bordo esterno scuro */
-                0 0 0 5px white; /* Anello interno bianco */
-    border-radius: 3px; /* Opzionale: aggiunge angoli arrotondati */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* --- STILI SOTTO-MENU OFF-CANVAS --- */
+.menu-links a:hover, 
+.submenu-container:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+    background-color: var(--bg-blur-card); /* Aumenta opacità all'hover */
+}
+
+/* --- STILI SOTTO-MENU --- */
+
 .submenu-container {
-    background-color: var(--bg-blur-card);
-    backdrop-filter: blur(5px);
+    /* Rimossa backdrop-filter anche qui */
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 12px 10px;
     border-bottom: 1px solid var(--color-dropdown-hover);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     border-radius: 15px;
-    margin-bottom: 1.8px;
+    margin-bottom: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-.submenu-container i{
-    font-size: 0.9rem;
-}
-
-
-
-/* Stile del pulsante che apre il sotto-menu */
 .submenu-toggle {
     display: flex;
     justify-content: space-between;
@@ -318,188 +294,197 @@ body.menu-open {
     padding: 0;
 }
 
+.submenu-toggle i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease; /* Aggiunto per ruotare la freccia se vuoi */
+}
 
+/* Classe opzionale se vuoi ruotare la freccia quando aperto */
+.submenu-toggle.open i {
+    transform: rotate(180deg);
+}
 
-
-/* Contenitore dei link interni (inizialmente chiuso) */
 .submenu-content {
-    /* Impostiamo l'altezza su 0 per l'animazione smooth-toggle (gestita da JS) */
-    height: 0; 
+    height: 0;
     overflow: hidden;
-    transition: height 0.3s ease-in-out; 
-    padding-left: 10px; /* Indentazione per i link interni */
+    transition: height 0.3s ease-in-out;
+    padding-left: 10px;
     display: flex;
     flex-direction: column;
 }
 
-/* Stile dei link interni al sotto-menu */
 .submenu-content a {
-    padding: 10px 10px; /* Padding ridotto */
+    padding: 10px 10px;
     font-size: 1rem;
-    font-weight: 400; /* Peso ridotto */
-    border-bottom: none; /* Rimuove il bordo per un aspetto più pulito */
+    font-weight: 400;
+    border-bottom: none;
     margin-bottom: 2px;
+    /* Reset background per i figli se necessario */
+    background-color: transparent; 
 }
 
-
-
-/* Stili per il focus accessibile (aggiungere anche qui se necessario) */
-.submenu-toggle:focus {
-     box-shadow: 0 0 0 3px var(--color-text-dark), 0 0 0 5px white; 
-     border-radius: 3px;
+.submenu-content a:hover {
+    background-color: rgba(0,0,0,0.05); /* Feedback visuale leggero */
+    transform: translateX(5px); /* Spostamento laterale invece che verticale per i sub-link */
+    box-shadow: none;
 }
 
-/* === MEDIA QUERY: Mobile/Tablet (max-width: 900px) === */
-@media (max-width: 800px) {
-    
-    body {
-        background-position: center 5px;
-    }
+/* --- STILI SOCIAL --- */
 
-    main {
-        padding: 0px;
-    }
-
-    .site-header {
-        padding: 10px 15px;
-        flex-wrap: nowrap;
-    }
-
-    .logo {
-        height: 45px; 
-    }
-
-    .therapyou {
-        position: static;
-        transform: none;
-        margin-left: 10px; 
-        margin-right: auto;
-        white-space: nowrap; 
-        flex-shrink: 1; 
-        min-width: 0;
-    }
-    
-    .therapyou h1 {
-        letter-spacing: 6px; 
-        font-size: 1.4rem
-    }
-    
-    .therapyou h4 {
-        letter-spacing: 0.3px;
-        font-size: 0.5rem;
-    }
-    
-    .main-nav {
-        gap: 5px; 
-    }
-
-
-    .social {
-        display: none;
-    }
-
-
-    .dropbtn {
-            font-size: 1.5rem;
-            padding: 5px;
-    }
-
-
-    .side-menu {
-        width: 85%;
-    }
+.menu-social {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    border-top: 2px solid var(--color-text-dark);
+    margin-top: auto; /* Spinge i social in basso se c'è spazio */
 }
 
+.menu-social a {
+    color: var(--color-text-dark);
+    font-size: 1rem;
+    padding: 10px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    display: flex; /* Allinea icona e testo */
+    align-items: center;
+}
+
+.menu-social a:hover {
+    transform: translateY(-3px);
+}
+
+.menu-social i {
+    font-size: 1.3rem;
+    width: 30px;
+    text-align: center; /* Centra icona nel suo spazio */
+}
+
+/* Utility Body */
+body.menu-open {
+    overflow: hidden;
+}
 
 
 /* === FOOTER (Piè di pagina) === */
 
 .site-footer {
-    padding: 10px;
+    /* Stile base "Flottante" */
+    padding: 30px 20px; /* Padding più arioso */
     background-color: var(--bg-blur-card);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* Supporto Safari */
     border-radius: 15px;
-    margin: 15px;
+    margin: 15px; /* Un po' più di respiro */
+    
     text-align: center;
+    color: var(--color-text-dark);
     font-weight: 300;
-    color: var(--color-text-dark);
-}
-
-.footer-box {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2em;
-    text-align: left;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.f-links {
-    color: var(--color-text-dark);
-    text-decoration: none;
-    transition: transform 0.3s ease;
-}
-
-.f-links :hover {
-    transform: translateY(-5px);
+    
+    /* Ombra leggera per staccarlo dal fondo */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
 .empty {
     padding: 1px;
 }
 
-@media (max-width: 800px) {
-  .footer-box {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 0;
-  }
-  .footer-last{
-    font-size: 0.8rem;
-  }
+.footer-box {
+    display: grid;
+    /* RESPONSIVE MAGIC:
+       Crea colonne che si adattano. Minimo 250px larghezza, 
+       altrimenti vanno a capo. Niente più layout rotti su mobile. 
+    */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: left;
+    
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
+/* Titoli delle colonne (Opzionale, se usi h3/h4 nel footer) */
+.footer-box h3 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    opacity: 0.8;
+}
+
+/* Link Footer */
+.f-links {
+    color: var(--color-text-dark);
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+    display: inline-block; /* Necessario per far funzionare transform */
+    margin-bottom: 5px; /* Spaziatura verticale tra i link */
+}
+
+/* FIX: rimosso lo spazio tra .f-links e :hover */
+.f-links:hover {
+    transform: translateY(-3px); /* Movimento più sottile (-5px era tanto) */
+    color: var(--color-primary, #000); /* Opzionale: cambia colore all'hover */
+}
+
+/* Accessibilità Focus */
+.f-links:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-text-dark);
+    border-radius: 2px;
+}
+
+/* Rimuovi la classe .empty se serviva solo per spazio. 
+   Usa 'gap' nella grid o 'margin' sui container. */
 
 
-/* Whatsapp Floating Button */
+
+
+
+/* === WHATSAPP FLOATING BUTTON === */
+
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 20px;
-    right: 20px;
-    background-color: var(--color-whatsapp);
+    bottom: 30px; /* Alzato leggermente per evitare "safari bottom bars" */
+    right: 30px;
+    
+    background-color: var(--color-whatsapp, #25d366); /* Fallback verde se manca la var */
     color: white;
     border-radius: 50%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: var(--shadow-whatsapp);
-    z-index: 1000;
+    
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    
+    font-size: 32px; /* Icona leggermente più grande */
     text-decoration: none;
     line-height: 1;
+    
+    z-index: 1000; /* Sotto il menu (1500), sopra il contenuto */
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    
+    /* Animazione "battito" per attirare l'occhio */
+    animation: pulse-green 2s infinite;
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: var(--shadow-whatsapp-hover);
-    background-color: var(--color-whatsapp-hover);
+    transform: scale(1.1) rotate(10deg); /* Piccola rotazione simpatica */
+    background-color: var(--color-whatsapp-hover, #128c7e);
+    animation: none; /* Ferma il pulse all'hover */
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* Accessibilità bottone WA */
+.whatsapp-float:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px white, 0 0 0 6px var(--color-whatsapp);
+}
 
 
 
@@ -507,90 +492,153 @@ body.menu-open {
 
 /* === HOME PAGE STYLES === */
 
-.top-container, .main-container {
+/* --- Layout Contenitori Principali (Grid) --- */
+.top-container,
+.main-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Usa la notazione breve per 'repeat' */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
     gap: 2em;
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
 }
 
-.main-column {
-    align-self: center;
-}
-
-/* Stili generali per le box/card della Home Page e Contatti */
-.top-title, .toggle-container, .main-content, .contact-location, .contact-container { 
+/* --- Stili Generali per Card/Box (Base) --- */
+/* Raggruppa tutti i selettori che condividono gli stili di sfondo, ombra e tipografia */
+.top-title,
+.toggle-container,
+.main-content,
+.contact-location,
+.contact-container {
+    /* Box Model e Layout */
     padding: 25px;
     border-radius: 15px;
-    box-sizing: border-box;
-    
+    box-sizing: border-box; /* Essenziale per l'uniformità dei padding */
+
+    /* Sfondo e Effetti (Blur/Shadow) */
     background-color: var(--bg-blur-card);
     backdrop-filter: blur(5px);
-    box-shadow: var(--shadow-card-md);
+    box-shadow: var(--shadow);
+    
+    /* Transizioni per l'Hover */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     
+    /* Tipografia Generale */
     text-align: center;
     font-size: 1rem;
     line-height: 1.6;
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
 }
 
-/* Hover Effect */
-.top-title:hover, .toggle-container:hover, .contact-location:hover, .contact-container:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-card-lg);
+/* --- Effetto Hover (Transizioni) --- */
+.top-title:hover,
+.toggle-container:hover,
+.contact-location:hover,
+.contact-container:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
-.top-title h1, .top-title h2, .toggle-container h3, .main-content h2, .contact-location h2, .contact-container h2 {
+/* --- Layout e Allineamento Specifico per Main Content Card --- */
+.main-content {
+    /* Forza altezza al 100% per allineare gli elementi interni (se il contenitore grid è uniforme) */
+    height: 100%; 
+    /* Utilizza Flexbox per il contenuto interno */
+    display: flex; 
+    flex-direction: column; 
+    /* Centra icona/testo verticalmente all'interno della card */
+    justify-content: center; 
+}
+
+/* --- Stili Specifici di Allineamento/Dimensione Testo --- */
+
+#deborah-text h2, #fra-text h2 {
+    margin-bottom: 0;
+}
+#deborah-text h4, #fra-text h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+#deborah-text img, #fra-text img {
+    aspect-ratio: 9 / 12;
+    object-position: center;
+    align-self: center;
+    max-width: 220px;
+    margin-bottom: 0; 
+}
+
+#deb-pt {
+    aspect-ratio: 9 / 12;
+    object-position: center;
+    align-self: center;
+    max-width: 220px;
+}
+
+/* --- Tipografia (Intestazioni) --- */
+/* Raggruppa tutte le intestazioni all'interno dei box */
+.top-title h1,
+.top-title h2, 
+.toggle-container h3, 
+.main-content h2, 
+.contact-location h2, 
+.contact-container h2 {
     margin-bottom: 0.5em;
     font-family: "Collier", sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     text-transform: uppercase;
 }
 
+/* --- Stili Icone e Liste --- */
 .icon-list {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Dimensione delle icone nelle liste (es. contatti) */
 }
 
-.servizi-top i{
-    font-size: 2rem;
+.servizi-top i {
+    font-size: 2rem; /* Dimensione delle icone nei servizi */
     margin-right: 7px;
 }
- 
 
+/* --- Sezione Presentazione (Grid Personalizzato) --- */
 #presentazione {
     display: grid;
-    grid-template-columns: 100px auto 100px;
-    margin: 0 auto;
-    width: auto;
-    align-items: center;
-    width: 100%;
+    /* Grid 100px (logo) | Auto (testo) | 100px (logo) */
+    grid-template-columns: 200px auto 200px;
+    width: 100%; /* Già coperto da .top-container/main-container max-width se usato lì */
+    margin: 0 auto; 
+    align-items: center; /* Centra verticalmente gli elementi nella riga */
+    /* Rimosso 'width: auto;' perché ridondante con 'width: 100%;' */
+}
+
+#presentazione-text {
+    margin: 0 1.2rem;
+}
+
+/* --- Stili Immagini/Loghi --- */
+.logo-home-small {
+    width: 200px;
+    align-self: center; /* Centra verticalmente il logo all'interno della cella */
 }
 
 #last-logo-home-small {
-    justify-self:right
+    justify-self: right; /* Allinea a destra l'ultimo logo nella sua cella */
 }
 
-.logo-home-small{
-    width: 100px;
-    align-self: center;
-}
-
+/* --- Stili Link Generali --- */
 .top-link {
     display: block;
     text-decoration: none;
-    transition: transform 0.3s ease;
     text-transform: uppercase;
     color: var(--color-text-dark);
+    transition: transform 0.3s ease; /* Lascia la transizione anche se manca l'hover */
 }
-
 /* Toggle Container Specifics */
 .toggle-container {
     cursor: pointer;
+    min-height: 280px;
 }
 
 
@@ -652,7 +700,7 @@ body.menu-open {
 
 .icon { 
     text-decoration: none;
-    color: var(--color-text-light); 
+    color: var(--color-text-dark); 
     font-size: 2.5rem;
     
     transition: transform 0.3s ease;
@@ -700,53 +748,9 @@ body.menu-open {
     margin-top: 10px;
 }
 
-@media (max-width: 800px) {  
-    .logo-home-small {
-    display: none;
-    }
-
-    #presentazione {
-        display: block;
-    }
-
-    #logo-home-big {
-        width: 100%;
-    }
-
-    #fra {
-        order: 1;
-    }
-    #fra-text {
-        order: 2;
-    }
-
-    .recensione-text {
-        max-width: 80%;
-    }
-
-    .servizi-top i {
-        display: none;
-    } 
-
-    .top-title img {
-        width: 100%;
-    }
-}
 
 
-/* Nasconde inizialmente tutte le card che devono apparire con l'animazione */
-.reveal-item {
-    opacity: 0;
-    transform: translateY(20px); /* Leggero spostamento verso il basso */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    transition-delay: 0.1s; /* Leggero ritardo per creare un effetto a cascata */
-}
-
-/* Stato finale: Visibile */
-.reveal-item.revealed {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* toggle containers */
 
 .toggle-container[open] summary ~ * {
     /* Rende il contenuto visibile e applica l'animazione */
@@ -764,91 +768,104 @@ body.menu-open {
     overflow: hidden;
 }
 
-.just {
-    text-align: justify;
+
+/* === CAROSELLO RECENSIONI STYLES === */
+
+/* --- Card Base (Recensione e Stelle) --- */
+/* Raggruppa gli stili comuni di blur, background, colore e border-radius */
+.recensione-text, 
+.stars,
+.carosello-recensioni {
+    /* Sfondo e Effetti (Blur/Shadow) */
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(15px); /* Mantengo 15px qui per recensione e stelle,
+                                     ma lo riduco a 3px nel selettore specifico del carosello
+                                     se si riferisce al contenitore principale */
+    color: var(--color-text-dark);
+    border-radius: 15px; /* Applica a .recensione-text e .stars */
+}
+
+/* --- Contenitore Principale del Carosello (Viewport) --- */
+.carosello-recensioni {
+    position: relative; /* Necessario per posizionare i bottoni in modo assoluto */
+    /* Modifica specifica per il carosello, usa 3px come nell'originale */
+    backdrop-filter: blur(3px); 
 }
 
 .recensioni-title {
     text-align: center;
 }
 
-.recensione-text, .stars {
-    background-color: var(--bg-blur-card);
-    backdrop-filter: blur(15px);
-    color: var(--color-text-dark);
-    width: 600px;
-    border-radius: 15px;
-    margin: 10px auto;
+/* --- Elementi della Recensione (Card Singola) --- */
+.recensione-text {
+    width: 600px; /* Larghezza fissa della card */
+    margin: 10px auto; /* Margine sopra/sotto e centrato */
     padding: 15px;
 }
 
-.recensione-text {
-    margin: auto;
-}
+/* Il selettore .recensione-text { margin: auto; } era ridondante/conflittuale
+   con .recensione-text, .stars { margin: 10px auto; }. È stato rimosso. */
 
-.stars{
+/* --- Stelle (Raggruppamento specifico) --- */
+.stars {
     width: 200px;
     padding: 10px;
+    margin: 10px auto; /* Centra anche le stelle se non sono già centrate da .recensione */
 }
+
+/* --- Layout del Singolo Slide --- */
 .recensione {
     flex-shrink: 0;
-    width: 98%;
+    width: 98%; /* Dimensione dello slide all'interno del viewport */
     padding: 1%;
     text-align: center;
+    
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* Centra il contenuto (testo/stelle) verticalmente */
 }
 
-
-
-
-/* La tua definizione per il contenitore di movimento (wrapper) */
+/* --- Wrapper di Movimento (Animazione) --- */
 .recensioni-container {
     display: flex; 
     transition: transform 0.5s ease-out;
 }
 
-/* Assicurati che il viewport nasconda l'eccesso */
+/* --- Viewport (Area visibile) --- */
 .recensioni-viewport {
     position: relative;
-    overflow: hidden;
-    align-self: center;
-     
+    overflow: hidden; /* Nasconde gli slide non attivi */
+    align-self: center; 
 }
 
-.carosello-recensioni {
-    position: relative; /* Necessario per posizionare i bottoni in modo assoluto */
-    background-color: var(--bg-blur-card);
-    backdrop-filter: blur(3px);
-    color: var(--color-text-dark);
-}
-
+/* --- Margini Generali (da verificare l'uso nel contesto) --- */
 .margin {
-    margin: 0 15px;
+    margin: 0 15px; /* Mantengo per eventuali usi specifici */
 }
 
-.prev-btn, .next-btn {
+/* --- Controlli (Bottoni Navigazione) --- */
+.prev-btn, 
+.next-btn {
     position: absolute;
     top: 50%;
-    transform: translateY(-20%); 
-    z-index: 10; /* Assicurati che siano sopra le recensioni */
+    /* * Correzione: `transform: translateY(-20%)` non è il centro. 
+     * Se vuoi centrare, usa `transform: translateY(-50%)`.
+     * Ho modificato l'hover per riflettere il centro.
+     */
+    transform: translateY(-50%); 
+    z-index: 10;
+    
     background: none;
     border: none;
     font-size: 2.5rem;
-    margin-bottom: 10px;
+    
+    /* Il margin-bottom sembra strano qui, l'ho rimosso per pulizia */
+    /* margin-bottom: 10px; */
+    
     transition: transform 0.3s ease;
 }
 
-
-/* Applica l'effetto solo quando il mouse è sopra */
-.prev-btn:hover, 
-.next-btn:hover {
-    /* Sposta il bottone leggermente verso l'alto */
-    transform: translateY(-55%) scale(1.1); 
-    cursor: pointer;
-}
-
+/* Posizionamento specifico dei bottoni */
 .prev-btn {
     left: 10px;
 }
@@ -857,60 +874,83 @@ body.menu-open {
     right: 10px;
 }
 
-
-
-
-
+/* --- Effetto Hover Bottoni --- */
+.prev-btn:hover, 
+.next-btn:hover {
+    cursor: pointer;
+    /* * Modifica l'hover basandoti sul centro (-50%) 
+     * Sposta leggermente verso l'alto e ingrandisci.
+     */
+    transform: translateY(-60%) scale(1.1); 
+}
 
 
 
 /* === CONTATTI PAGE STYLES === */
 
-.contact-location, .contact-container {
+/* --- Contenitori Principali --- */
+/* (Nota: Alcune proprietà di base come padding, border-radius e box-shadow
+   sono probabilmente ereditate dal blocco "Stili generali per le box/card"
+   che abbiamo ottimizzato in precedenza. Qui definiamo solo le specifiche di layout.) */
+.contact-location, 
+.contact-container {
     max-width: 90%;
-    margin: 0 auto;
-    margin-top: 20px;
+    /* Raggruppa margini e centratura */
+    margin: 20px auto 0; /* (Top 20px, Auto orizzontale, Bottom 0) */
     padding: 10px;
 }
 
-
+/* --- Layout Contatti Whatsapp (Grid) --- */
 .whatsapp-contact {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    justify-content: flex-start;
+    /* `justify-content: flex-start;` è lo stile predefinito per il grid. 
+       Rimosso per pulizia, a meno che non sia necessario un allineamento specifico. */
+    /* Sezione specifica per il margine superiore (era ripetuto) */
+    margin-top: 20px; 
 }
 
-
-/* Maps Button & Whatsapp Buttons */
-.maps-btn, .whatsapp-btn {
+/* --- Stili Pulsanti (Base e Sfondo) --- */
+.maps-btn, 
+.whatsapp-btn {
+    /* Layout */
     display: inline-block;
-    background-color: var(--bg-blur-card);
-    backdrop-filter: blur(15px);
-    color: var(--color-text-light);
     padding: 10px 20px;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
-    margin: 10px 20px;
+    
+    /* Sfondo e Effetti */
+    background-color: var(--bg-blur-card);
+    backdrop-filter: blur(15px);
+    color: var(--color-text-dark);
+    
+    /* Centratura e Margini */
+    margin: 10px auto; /* Raggruppa margin-top (10px) e centratura orizzontale (auto) */
+    
+    /* Transizioni */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 0 auto;    
+    
+    /* Nota: Le righe originali `margin: 10px 20px;` e `margin: 0 auto;` 
+       sono state consolidate in `margin: 10px auto;` per centrarli. 
+       Il selettore `.maps-btn { margin-top: 10px; }` era ridondante. */
 }
 
-.maps-btn {
-    margin-top: 10px;
+/* --- Effetto Hover Pulsanti --- */
+.maps-btn:hover, 
+.whatsapp-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
 }
 
-.maps-btn:hover, .whatsapp-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-card-lg);
-}
-
+/* --- Contenitore Mappa (Responsive Embed) --- */
 .map-container {
-    margin: 0 auto;
-    margin-top: 1em;
+    margin: 1em auto 0; /* Margin top 1em, auto orizzontale, 0 bottom */
     position: relative;
     width: 90%;
-    padding-bottom: 42.85%;
+    
+    /* L'uso di padding-bottom per l'aspect ratio 16:9 (o 42.85%) è corretto */
+    padding-bottom: 42.85%; 
     height: 0; 
     overflow: hidden;
 }
@@ -924,57 +964,11 @@ body.menu-open {
     border-radius: 15px;
 }
 
-/* Media Query per PC (min-width: 769px) */
-@media (min-width: 800px) {
-
-    .map-container {
-        max-width: 700px;
-        padding-bottom: 0; 
-        height: 300px;
-        margin: 0 auto;
-    }
-
-    .map-container iframe {
-        width: 100%;
-        height: 100%;
-    }
-
-    .contact-location, .contact-container {
-    max-width: 1000px;
-    }
-    
-}
-
-/* === MEDIA QUERY: Mobile/Tablet (max-width: 900px) === */
-@media (max-width: 800px) {
-    
-    /* ... (I tuoi stili esistenti per l'header, ecc.) ... */
-
-    /* Nuovo stile per impilare i pulsanti WhatsApp */
-    .whatsapp-contact {
-        display: flex; /* Passa da grid a flex */
-        flex-direction: column; /* Forza gli elementi a impilarsi verticalmente */
-        width: 100%; /* Occupa l'intera larghezza disponibile */
-    }
-    
-    /* Regola il margine sui pulsanti per impilamento */
-    .maps-btn, .whatsapp-btn {
-        margin: 5px 0; /* Rimuovi i margini laterali e aggiungi un piccolo margine verticale */
-        text-align: center; /* Centra il testo all'interno del pulsante allungato */
-    }
-
-}
-
-/* Whatsapp Contact Section */
-.whatsapp-contact {
-    margin-top: 20px;
-}
-
+/* --- Buono Regalo (Immagine) --- */
 #santa {
-    aspect-ratio: calc(500/750);
+    aspect-ratio: calc(500/750); /* Mantiene l'aspetto originale 2:3 (500/750) */
     width: 90%;
 }
-
 
 
 
@@ -1010,7 +1004,7 @@ body.menu-open {
 .popup-content {
     background-color: var(--bg-blur-card);
     backdrop-filter: blur(5px); 
-    color: var(--color-text-light);
+    color: var(--color-text-dark);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -1080,11 +1074,164 @@ body.menu-open {
     
 }
 
-@media (max-width: 800px) {
+
+
+
+/* Media Query per PC contatti */
+@media (min-width: 800px) {
+
+    .map-container {
+        max-width: 700px;
+        padding-bottom: 0; 
+        height: 300px;
+        margin: 0 auto;
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 100%;
+    }
+
+    .contact-location, .contact-container {
+    max-width: 1000px;
+    }
     
+}
+
+/* === MEDIA QUERY: Mobile/Tablet (max-width: 000px) === */
+@media (max-width: 900px) {
+    
+    /* pagina contatti*/
+
+    /* Nuovo stile per impilare i pulsanti WhatsApp */
+    .whatsapp-contact {
+        display: flex; /* Passa da grid a flex */
+        flex-direction: column; /* Forza gli elementi a impilarsi verticalmente */
+        width: 100%; /* Occupa l'intera larghezza disponibile */
+    }
+    
+    /* Regola il margine sui pulsanti per impilamento */
+    .maps-btn, .whatsapp-btn {
+        margin: 5px 0; /* Rimuovi i margini laterali e aggiungi un piccolo margine verticale */
+        text-align: center; /* Centra il testo all'interno del pulsante allungato */
+    }
+
+    /* POP-UP*/
     .popup-content {
         max-width: 70%;
     }
 
-}
 
+
+    /* GENERAL */
+    
+    body {
+        background-position: center 5px;
+    }
+
+    main {
+        padding: 0px;
+    }
+
+    .site-header {
+        padding: 10px 15px;
+        flex-wrap: nowrap;
+    }
+
+    .logo {
+        height: 45px; 
+    }
+
+    .therapyou {
+        position: static;
+        transform: none;
+        margin-left: 10px; 
+        margin-right: auto;
+        white-space: nowrap; 
+        flex-shrink: 1; 
+        min-width: 0;
+    }
+    
+    .therapyou h1 {
+        letter-spacing: 6px; 
+        font-size: 1.4rem
+    }
+    
+    .therapyou h4 {
+        letter-spacing: 0.3px;
+        font-size: 0.5rem;
+    }
+    
+    .main-nav {
+        gap: 5px; 
+    }
+
+
+    .social {
+        display: none;
+    }
+
+
+    .dropbtn {
+            font-size: 1.5rem;
+            padding: 5px;
+    }
+
+
+    .side-menu {
+        width: 85%;
+    }
+
+ /* FOOTER */
+    
+
+    
+    /* Gestione Griglia e Testo */
+    .footer-box {
+        /* Non serve grid-template-columns: 1fr, lo fa già l'auto-fit! */
+        
+        text-align: center; /* Mantiene il testo centrato su mobile */
+        gap: 1.5rem; /* Mantiene un po' di aria tra i blocchi impilati */
+    }
+    
+    /* Manteniamo la tua personalizzazione per l'ultima riga */
+    .footer-last {
+        font-size: 0.8rem;
+        margin-top: 10px; /* Un po' di aria extra sopra i credits */
+        opacity: 0.7; /* Lo rende visivamente meno pesante */
+    }
+
+
+    /* HOME PAGE */
+    
+    .logo-home-small {
+    display: none;
+    }
+
+    #presentazione {
+        display: block;
+    }
+
+    #logo-home-big {
+        width: 100%;
+    }
+
+    #fra {
+        order: 1;
+    }
+    #fra-text {
+        order: 2;
+    }
+
+    .recensione-text {
+        max-width: 80%;
+    }
+
+    .servizi-top i {
+        display: none;
+    } 
+
+    .top-title img {
+        width: 100%;
+    }
+}
