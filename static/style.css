@@ -610,7 +610,10 @@ body.menu-open {
     aspect-ratio: 9 / 12;
     object-position: center;
     align-self: center;
-    max-width: 220px;
+    max-width: min(220px, 100%);
+    width: 100%;
+    height: auto;
+
     margin-bottom: 0; 
 }
 
@@ -706,12 +709,17 @@ h2 {
 }
 
 .toggle-container img, .main-content img {    
-    max-width: 220px;
+    max-width: min(220px, 100%);
+    width: 100%;
+    height: auto;
     object-position: center;
 }
 
 .top-title img {
-    max-width: 300px;
+    max-width: min(220px, 100%);
+    width: 100%;
+    height: auto;
+
     object-position: center;
 }
 
