@@ -68,7 +68,7 @@ button, a {
 }
 
 img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto; /* Mantiene l'aspect ratio */
     display: block; /* Utile per rimuovere lo spazio bianco sotto */
 }
