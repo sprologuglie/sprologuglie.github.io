@@ -569,12 +569,13 @@ body.menu-open {
 }
 
 .icona {
+    min-width: 90px;
     margin-right: 10px;
     text-align: center;
 }
 
 .icona i {
-    font-size: clamp(20px, 6vw, 40px);
+    font-size: 2rem;
 }
 
 
@@ -647,7 +648,7 @@ h2 {
     font-size: 1.4rem; /* Dimensione delle icone nelle liste (es. contatti) */
 }
 
-.servizi-top i {
+. i {
     font-size: 2rem; /* Dimensione delle icone nei servizi */
     margin-right: 7px;
 }
@@ -1306,10 +1307,12 @@ h2 {
         max-width: 80%;
     }
 
-    .servizi-top i {
+    . i {
         display: none;
     } 
 
-    
+    .icona {
+        display: none;
+    }
 }
 
