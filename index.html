@@ -19,7 +19,9 @@
   <link rel="stylesheet" href="/static/style.css">
 
   <!-- Icone Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Collier:wght@400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -65,38 +67,94 @@
 
   <!-- CONTENUTO PRINCIPALE -->
   <main>
-   
+      <!-- PRESENTAZIONE-->
       <div class="top-container">
-        <div id="presentazione" class="top-title reveal-item">
+        <div class="top-title reveal-item presentazione">
           <img servizi-top class="logo-home-small" src="/static/images/sfondo-removebg-preview.webp" alt="logo-therapyou" loading="lazy">
           <div id="presentazione-text">
-            <h1>THERAPYOU</h1> <h3>OSTEOPATIA E PERSONAL TRAINING A MONCALIERI</h3>
-            <p>Benvenuto da Therapyou, il primo studio a Moncalieri che integra Osteopatia e Personal Training in un unico percorso.
+            <h1>THERAPYOU</h1> <h3>OSTEOPATIA E PERSONAL TRAINING A SERVIZIO DEL TUO BENESSERE</h3>
+            <p class="valutazione just">Benvenuto da Therapyou:
+               Il primo studio a Moncalieri che integra Osteopatia e Personal Training in un unico percorso.
                 Due approcci, un solo obiettivo: il tuo benessere.
                 Qui ogni persona viene accolta nella sua unicità.
                 Professionalità, competenza e attenzione si uniscono per aiutarti a ritrovare forza, equilibrio e, soprattutto, una migliore qualità di vita.
                 Non ci occupiamo solo dell’aspetto estetico, ma di ciò che ti fa stare bene davvero e ti permette di elevare la qualità della tua quotidianità.
                 Il nostro metodo considera la persona nella sua globalità, offrendo soluzioni personalizzate e il supporto costante dei nostri professionisti.
             </p>
-            <a class="whatsapp-btn" href="/contatti/">Prenota ora</a>
           </div>
-          <img id="last-logo-home-small" class="logo-home-small" src="/static/images/sfondo-removebg-preview.webp" alt="logo-therapyou" loading="lazy">
+          <img id="last-logo-home-small" class="logo-home-small last-img" src="/static/images/sfondo-removebg-preview.webp" alt="logo-therapyou" loading="lazy">
         </div>
       </div>
-      <div class="top-container">
-        <div class="top-title reveal-item">
-          <h2>Ambiente</h2>
-          <p>Qui trovi un ambiente moderno, curato, pulito e tranquillo, dotato di attrezzature di alto livello.
-              Uno spazio pensato sia per chi desidera mettersi alla prova e lavorare sulla propria massa muscolare, sia per chi ha bisogno di recuperare e ritrovare fluidità nei gesti motori più semplici.
-              Ciò che davvero ci distingue è la personalizzazione: ogni esercizio e ogni movimento viene studiato su misura, in base alle esigenze, alle capacità e agli obiettivi della singola persona.
-              Inoltre, ogni trattamento osteopatico è pensato per supportare e potenziare il lavoro svolto in palestra, creando un percorso integrato e coerente.
-              In questo modo il percorso diventa unico, realmente disegnato su di te.
-          </p>
-        </div>
 
-            <div class="top-title reveal-item" >
-                <h2>vision</h2>
-                    <p>La nostra visione è creare un luogo in cui movimento, salute e consapevolezza del proprio corpo si incontrano in un percorso unico, pensato per accompagnare ogni persona verso la migliore versione di sé.
+      <!-- Valutazione -->
+      <div class="top-container">
+        <div class="top-title reveal-item presentazione" id="valutazione-home">
+          <img servizi-top class="logo-home-small" src="/static/images/sfondo-removebg-preview.webp" alt="logo-therapyou" loading="lazy">
+          <div>
+            <h2>vieni a fare una valutazione gratuita</h2>
+            <div class="contenitore-icona-testo valutazione just">
+              <div class="icona"><i class="fa-solid fa-clipboard-list"></i></div>
+              <div class="testo-descrizione">
+                Da Therapyyou la valutazione è il primo passo di un percorso costruito su misura per te. Il tuo benessere può cominciare così, senza impegno.
+              </div>
+            </div>
+            <div class="contenitore-icona-testo valutazione just">
+              <div class="icona"><i class="fa-solid fa-comments"></i></div>
+              <div class="testo-descrizione"> 
+                Non vieni a fare un trattamento: un professionista dedica tempo ad ascoltare la tua storia, capire la tua condizione attuale, i tuoi obiettivi e ciò di cui hai davvero bisogno.
+              </div>
+            </div>
+            <div class="contenitore-icona-testo valutazione just">
+              <div class="icona"><i class="fa-solid fa-road"></i></div>
+              <div class="testo-descrizione">
+                Grazie a questa valutazione iniziale possiamo identificare il percorso più adatto a te, che si tratti di osteopatia, chinesiologia personal training o un’integrazione di tutti, così che ogni intervento sia mirato, efficace e pensato per accompagnarti verso un benessere duraturo.
+              </div>
+            </div>
+            <div class="contenitore-icona-testo valutazione just">
+              <div class="icona"><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i></div>
+              <div class="testo-descrizione">
+                Prenotare la valutazione significa iniziare un cammino personalizzato, progettato per aiutarti a stare meglio, passo dopo passo.</div>
+            </div>        
+            <a class="whatsapp-btn" href="/contatti/">Prenota ora</a>
+          </div>
+          <img servizi-top class="logo-home-small last-img" src="/static/images/sfondo-removebg-preview.webp" alt="logo-therapyou" loading="lazy">
+        </div>
+      </div>
+
+      <div class="top-container">
+              <div class="top-title reveal-item">
+        <h2>perché scegliere TherapYou</h2>
+        <a class="icon" href="#vision">
+          <i class="fa-solid fa-handshake"><p>Approccio integrato <br> osteopatia + allenamento</p></i>
+        </a>
+
+        <a class="icon" href="#team">
+          <i class="fa-solid fa-user-graduate"><p>Professionisti <br> qualificati</p></i>
+          
+        </a>
+
+        <a class="icon" href="#ambiente">
+          <i class="fa-solid fa-house-user">
+          <p>Ambiente tranquillo <br> moderno e accogliente</p></i>
+        </a>
+
+        <a class="icon" href="#vision">
+          <i class="fa-solid fa-user-check">
+          <p>Percorsi <br> personalizzati</p></i>
+        </a>
+
+        <a class="icon" href="#servizi">
+          <i class="fa-solid fa-bullseye">
+          <p>salute, benessere <br> e performance</p></i>
+        </a>
+      </div>
+      </div>
+
+      <div class="top-container">
+            <div class="top-title reveal-item" id="vision" >
+                <h2>Un percorso di benessere completo e personalizzato</h2>
+                <img servizi-top src="/static/images/sfondo-removebg-preview.webp" alt="logo-therapyou" loading="lazy">
+                    <p class="valutazione just">La nostra visione è creare un luogo in cui movimento, salute e consapevolezza del proprio corpo si incontrano in un percorso unico, pensato per accompagnare ogni persona verso la migliore versione di sé.
                         Crediamo in un approccio integrato, in cui Osteopatia e Personal Training collaborano in sinergia.
                         Questa sinergia non è una semplice somma di due discipline, ma un vero e proprio sistema progettato per massimizzare l’efficacia del percorso
                         Il nostro obiettivo è offrire un’esperienza in cui la persona venga sempre messa al centro: ascoltata, compresa e guidata attraverso soluzioni efficaci, personalizzate e sostenibili nel tempo.
@@ -165,16 +223,7 @@
 
 
     <div class="top-container">
-      <div class="top-title reveal-item">
-        <h2>perché scegliere TherapYou</h2>
-        <i class="fa-solid fa-handshake icon"><p> Approccio integrato <br> osteopatia + allenamento</p></i>
-        <i class="fa-solid fa-user-graduate icon"><p> Professionisti <br> qualificati</p></i>        
-        <i class="fa-solid fa-house-user icon"><p> Ambiente tranquillo <br> moderno e accogliente</p></i>
-        <i class="fa-solid fa-user-check icon"><p> Percorsi <br> personalizzati</p></i>
-        <i class="fa-solid fa-bullseye icon"><p> salute, benessere <br> e performance</p></i>
-      </div>
-
-        <div id="servizi" class="top-title reveal-item">
+        <div id="servizi" class="top-title reveal-item" id="servizi">
           <a class="top-link" href="/servizi/"><h2>SERVIZI</h2></a>
         <a class="icon" href="/osteopatia/"><i class="fa-solid fa-briefcase-medical"><p>Trattamenti<br> Osteopatici</p></i></a>
         <a class="icon" href="/personal-training/"><i class="fa-solid fa-dumbbell"><p>Allenamenti<br> personalizzati</p></i></a>
@@ -184,25 +233,42 @@
         <a class="icon" href="/ginnastica-posturale/"><i class="fa-solid fa-person"><p>Ginnastica<br>posturale</p></i></a>
         <a class="icon" href="/ginnastica-pre-post-parto/"><i class="fa-solid fa-baby"><p>ginnastica pre<br>e post parto</p></i></a>
         <a class="icon" href="/rieducazione-funzionale/"><i class="fa-solid fa-people-carry-box"><p>Rieducazione<br>funzionale</p></i></a>
-        
+        <br><a class="whatsapp-btn" href="/servizi/">Scopri tutti i nostri servizi</a>
         </div>
+
       </div>
 
 
  
-  <div class="top-container">    
-        <div class="top-title reveal-item">
-            <h2>La nostra forza è il nostro team di professionisti</h2>       
-                <p>Da Therapyou sarai seguito personalmente, in modo che ogni seduta si adatti al tuo percorso e alle tue esigenze del momento</p>
-                <p><img src="/static/images/deborah-pt.webp" id="deb-pt" alt="deborah in veste di personal trainer" loading="lazy"></p>
-                <a class="whatsapp-btn" href="/team/">Scopri il nostro team</a>
+  <div class="top-container">
+            <div class="top-title reveal-item column-flex">
+          <h2>un ambiente perfetto per prendersi cura di se stessi</h2>
+          <img servizi-top src="/static/images/sfondo-removebg-preview.webp" alt="logo-therapyou" loading="lazy">
+          <p class="just">Qui trovi un ambiente moderno, curato, pulito e tranquillo, dotato di attrezzature di alto livello.
+              Uno spazio pensato sia per chi desidera mettersi alla prova e lavorare sulla propria massa muscolare, sia per chi ha bisogno di recuperare e ritrovare fluidità nei gesti motori più semplici.
+              Ciò che davvero ci distingue è la personalizzazione: ogni esercizio e ogni movimento viene studiato su misura, in base alle esigenze, alle capacità e agli obiettivi della singola persona.
+              Inoltre, ogni trattamento osteopatico è pensato per supportare e potenziare il lavoro svolto in palestra, creando un percorso integrato e coerente.
+              In questo modo il percorso diventa unico, realmente disegnato su di te.
+          </p>
+          <a class="whatsapp-btn cta-down" href="/team/">Scopri il nostro studio</a>
+        </div>    
+        <div class="top-title reveal-item column-flex" id="team">
+            <h2>Un team giovane, dinamico e in costante aggiornamento.</h2>
+            <img src="/static/images/deborah-pt.webp" id="deb-pt" alt="deborah in veste di personal trainer" loading="lazy">
+            <p class="just">
+              Gli anni di studio e le esperienze maturate sul campo ci hanno permesso di comprendere le molteplici sfumature del corpo umano, analizzare ogni movimento — anche il più piccolo — e coglierne obiettivi, limiti e potenzialità.
+              Ogni persona è unica: per questo studiamo ogni corpo come un caso a sé, adattando il percorso e il lavoro in base alle reali esigenze dell’individuo.
+              Durante la nostra carriera abbiamo seguito sportivi, persone con patologie croniche, anziani, donne in gravidanza, ragazzi alle prime esperienze e persone che, dopo anni di sport intenso, avevano bisogno di ritrovare equilibrio e funzionalità.
+              Il nostro impegno è sempre lo stesso: accompagnare ciascuno verso un miglioramento concreto della qualità di vita, verso una maggiore autonomia nella gestione della propria quotidianità e verso un rinnovato senso di autostima.
+            </p>
+            <a class="whatsapp-btn" href="/team/">Scopri il nostro team</a>
         </div>
   </div>   
 
       <div class="top-container">
     <div class="carosello-recensioni top-title reveal-item">
     <div class="recensioni-title">
-      <h3>Recensioni su Google Maps</h3> 
+      <h3>Cosa pensano di noi</h3> 
     </div> 
     <div class="recensioni-viewport">
         <div class="recensioni-container"> 
@@ -261,7 +327,8 @@
     </div>
     </div>
 
-    <section id="dove-trovarci" class="contact-location reveal-item">
+    <div class="top-container">
+    <section id="dove-trovarci" class="top-title reveal-item">
       <h2>DOVE TROVARCI</h2>
       <p>📍 Siamo in <strong>Via Grazia Deledda 18 Moncalieri (TO)</strong></p>
       
@@ -277,6 +344,7 @@
       <a href="https://www.google.com/maps/place/Therapyou+-+osteopatia+e+personal+training+studio/@44.9966622,7.6989607,17z/data=!3m1!4b1!4m6!3m5!1s0x47880d0018e3f9a5:0x7aa74052002506fd!8m2!3d44.9966622!4d7.7015356!16s%2Fg%2F11zjvbvbyp?entry=ttu&g_ep=EgoyMDI1MTEwMi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="maps-btn">
        <i class="fa-regular fa-map"></i> Apri su Google Maps</a>
     </section>
+    </div>
 
 
     

@@ -23,8 +23,11 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-size: 16px;
-    font-family: "Inter", Arial, sans-serif;
+    font-size: 17px;
+    
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    
+    line-height: 1.65;
     scroll-behavior: smooth;
 }
 
@@ -35,14 +38,14 @@ body {
     min-height: 100vh;
     
     /* Background */
-    background-image: url("images/sfondo4.webp");
+    background-image: url("/static/images/sfondo4.webp");
     background-size: 100% auto;    
     /* FIX: Immagine sotto l'header (circa 80px di altezza header) */
     background-position: center 10px; 
     background-color: var(--color-primary);
     
     /* Typography & Color */
-    font-weight: 500;
+    font-weight: 400;
     color: var(--color-text-dark);
 }
 
@@ -58,6 +61,10 @@ button, a {
 
 .just {
     text-align: justify;
+}
+
+.p {
+    font-size: 1.15rem;
 }
 
 /* Nasconde inizialmente tutte le card che devono apparire con l'animazione */
@@ -88,7 +95,6 @@ button, a {
     border-radius: 12px;
     margin: 10px;
     z-index: 100;
-    position: relative;
 }
 .logo {
     height: 50px;
@@ -120,7 +126,7 @@ button, a {
 }
 
 .therapyou h1 {
-    letter-spacing: 19px;
+    letter-spacing: 20.5px;
 }
 
 .main-nav {
@@ -549,7 +555,48 @@ body.menu-open {
     justify-content: center; 
 }
 
-/* --- Stili Specifici di Allineamento/Dimensione Testo --- */
+/* --- Stili Specifici di Allineamento/Dimensione Testo per VALUTAZIONE --- */
+.valutazione {
+    max-width: 750px;
+    align-self: center;
+    justify-self: center;
+}
+
+.contenitore-icona-testo {
+  display: flex; /* Abilita il layout flessibile */
+  align-items: center; /* Allinea verticalmente gli elementi al centro (icona e testo saranno centrati tra loro) */
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.icona {
+  /* Assicurati che l'icona abbia una dimensione fissa se necessario */
+  flex-shrink: 0; /* Impedisce all'icona di rimpicciolirsi se lo spazio è limitato */
+  width: 70px;
+  text-align: center;
+}
+
+.testo-descrizione {
+  /* Permetti al testo di occupare lo spazio rimanente */
+  flex-grow: 1; 
+}
+
+/* Esempio per l'icona (se fosse un font icon) */
+.icona i {
+  font-size: 40px; /* Regola la dimensione dell'icona */
+  color: #000;
+}
+
+.column-flex {
+    display: grid; 
+    grid-template-columns: auto;
+    justify-items: center; /* Centra il contenuto verticalmente all'interno del box allungato */
+    height: 100%
+}
+
+.column-flex p {
+    flex-grow: 1;
+}
 
 #deborah-text h2, #fra-text h2 {
     margin-bottom: 0;
@@ -576,19 +623,23 @@ body.menu-open {
 
 /* --- Tipografia (Intestazioni) --- */
 /* Raggruppa tutte le intestazioni all'interno dei box */
-.top-title h1,
-.top-title h2, 
-.toggle-container h3, 
-.main-content h2, 
-.contact-location h2, 
-.contact-container h2 {
+h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0.5em;
     font-family: "Collier", sans-serif;
-    font-weight: 600;
-    letter-spacing: 1px;
+    font-weight: 700;
     color: var(--color-text-dark);
     text-transform: uppercase;
 }
+
+h1 {
+    letter-spacing: 0.1rem;
+}
+
+h2 {
+    letter-spacing: 0.05rem;
+}
+
+
 
 /* --- Stili Icone e Liste --- */
 .icon-list {
@@ -601,7 +652,7 @@ body.menu-open {
 }
 
 /* --- Sezione Presentazione (Grid Personalizzato) --- */
-#presentazione {
+.presentazione {
     display: grid;
     /* Grid 100px (logo) | Auto (testo) | 100px (logo) */
     grid-template-columns: 200px auto 200px;
@@ -611,7 +662,15 @@ body.menu-open {
     /* Rimosso 'width: auto;' perché ridondante con 'width: 100%;' */
 }
 
-#presentazione-text {
+.presentazione h1 {
+    margin-bottom: 0;
+}
+
+.presentazione h3 {
+    margin-top: 0;
+}
+
+.presentazione-text {
     margin: 0 1.2rem;
 }
 
@@ -621,7 +680,7 @@ body.menu-open {
     align-self: center; /* Centra verticalmente il logo all'interno della cella */
 }
 
-#last-logo-home-small {
+.last-img {
     justify-self: right; /* Allinea a destra l'ultimo logo nella sua cella */
 }
 
@@ -648,13 +707,11 @@ body.menu-open {
 
 .toggle-container img, .main-content img {    
     max-width: 220px;
-    height: auto;
     object-position: center;
 }
 
 .top-title img {
     max-width: 300px;
-    height: auto;
     object-position: center;
 }
 
@@ -963,7 +1020,7 @@ body.menu-open {
 }
 
 /* --- Buono Regalo (Immagine) --- */
-#santa {
+.santa {
     aspect-ratio: calc(500/750); /* Mantiene l'aspetto originale 2:3 (500/750) */
     max-width: 230px;
 }
@@ -1206,7 +1263,7 @@ body.menu-open {
     display: none;
     }
 
-    #presentazione {
+    .presentazione {
         display: block;
     }
 
