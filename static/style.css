@@ -1161,8 +1161,22 @@ h2 {
 
 /* === MEDIA QUERY: Mobile/Tablet (max-width: 000px) === */
 @media (max-width: 900px) {
+    
     img {
-        width: 100%;
+        max-width: 100%;
+        height: auto;
+        width: auto; /* lascia fare al browser */
+        object-fit: contain;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .top-title,
+    .toggle-container,
+    .main-content,
+    .column-flex {
+        padding: 15px !important; /* riduce overflow */
+        overflow-x: hidden;
     }
 
     
@@ -1296,7 +1310,6 @@ h2 {
         display: none;
     } 
 
-    .top-title img, #deb-pt, #deborah-text img, #santa img, #fra-text img {
-        width: 100%;
-    }
+    
 }
+
