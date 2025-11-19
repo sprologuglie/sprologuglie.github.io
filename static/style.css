@@ -569,13 +569,12 @@ body.menu-open {
 }
 
 .icona {
-    min-width: 90px;
     margin-right: 10px;
     text-align: center;
 }
 
 .icona i {
-    font-size: 2rem;
+    font-size: clamp(20px, 6vw, 40px);
 }
 
 
@@ -648,9 +647,9 @@ h2 {
     font-size: 1.4rem; /* Dimensione delle icone nelle liste (es. contatti) */
 }
 
-. i {
-    font-size: 2rem; /* Dimensione delle icone nei servizi */
-    margin-right: 7px;
+.servizi-top i {
+    font-size: 2rem;
+    margin-right: 20px;
 }
 
 /* --- Sezione Presentazione (Grid Personalizzato) --- */
@@ -721,6 +720,8 @@ h2 {
 
     object-position: center;
 }
+
+
 
 .toggle-text, .main-content p {
   font-size: 1rem; 
@@ -1307,12 +1308,7 @@ h2 {
         max-width: 80%;
     }
 
-    . i {
-        display: none;
-    } 
 
-    .icona {
-        display: none;
-    }
+    
 }
 
