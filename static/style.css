@@ -570,11 +570,14 @@ body.menu-open {
 }
 
 .icona {
-  /* Assicurati che l'icona abbia una dimensione fissa se necessario */
-  flex-shrink: 0; /* Impedisce all'icona di rimpicciolirsi se lo spazio è limitato */
-  width: 70px;
-  text-align: center;
+    width: auto;
+    margin-right: 10px;
 }
+
+.icona i {
+    font-size: clamp(24px, 6vw, 40px);  /* si adatta al device */
+}
+
 
 .testo-descrizione {
   /* Permetti al testo di occupare lo spazio rimanente */
