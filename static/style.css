@@ -555,7 +555,7 @@ body.menu-open {
     justify-content: center; 
 }
 
-/* --- Stili Specifici di Allineamento/Dimensione Testo per VALUTAZIONE --- */
+/* ---  VALUTAZIONE --- */
 .valutazione {
     max-width: 750px;
     align-self: center;
@@ -564,18 +564,17 @@ body.menu-open {
 
 .contenitore-icona-testo {
   display: flex; /* Abilita il layout flessibile */
-  align-items: center; /* Allinea verticalmente gli elementi al centro (icona e testo saranno centrati tra loro) */
-  gap: 15px;
+  align-items: center;
   margin-bottom: 10px;
 }
 
 .icona {
-    width: auto;
     margin-right: 10px;
+    text-align: center;
 }
 
 .icona i {
-    font-size: clamp(24px, 6vw, 40px);  /* si adatta al device */
+    font-size: clamp(20px, 6vw, 40px);
 }
 
 
@@ -584,11 +583,9 @@ body.menu-open {
   flex-grow: 1; 
 }
 
-/* Esempio per l'icona (se fosse un font icon) */
-.icona i {
-  font-size: 40px; /* Regola la dimensione dell'icona */
-  color: #000;
-}
+
+
+
 
 .column-flex {
     display: grid; 
@@ -610,10 +607,9 @@ body.menu-open {
 }
 
 #deborah-text img, #fra-text img {
-    aspect-ratio: 9 / 12;
     object-position: center;
     align-self: center;
-    max-width: min(220px, 100%);
+    max-width: 220px;
     width: 100%;
     height: auto;
 
@@ -621,7 +617,6 @@ body.menu-open {
 }
 
 #deb-pt {
-    aspect-ratio: 9 / 12;
     object-position: center;
     align-self: center;
     max-width: 220px;
@@ -1166,6 +1161,10 @@ h2 {
 
 /* === MEDIA QUERY: Mobile/Tablet (max-width: 000px) === */
 @media (max-width: 900px) {
+    img {
+        width: 100%;
+    }
+
     
     /* pagina contatti*/
 
@@ -1297,7 +1296,7 @@ h2 {
         display: none;
     } 
 
-    .top-title img {
+    .top-title img, #deb-pt, #deborah-text img, #santa img, #fra-text img {
         width: 100%;
     }
 }
