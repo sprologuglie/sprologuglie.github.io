@@ -67,6 +67,12 @@ button, a {
     font-size: 1.15rem;
 }
 
+img {
+    max-width: 100%;
+    height: auto; /* Mantiene l'aspect ratio */
+    display: block; /* Utile per rimuovere lo spazio bianco sotto */
+}
+
 /* Nasconde inizialmente tutte le card che devono apparire con l'animazione */
 .reveal-item {
     opacity: 0;
