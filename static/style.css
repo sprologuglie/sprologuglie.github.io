@@ -378,12 +378,12 @@ body.menu-open {
 
 .site-footer {
     /* Stile base "Flottante" */
-    padding: 30px 20px; /* Padding più arioso */
+    padding: 10px; /* Padding più arioso */
     background-color: var(--bg-blur-card);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px); /* Supporto Safari */
     border-radius: 15px;
-    margin: 15px; /* Un po' più di respiro */
+    margin: 10px; /* Un po' più di respiro */
     
     text-align: center;
     color: var(--color-text-dark);
@@ -403,20 +403,14 @@ body.menu-open {
        Crea colonne che si adattano. Minimo 250px larghezza, 
        altrimenti vanno a capo. Niente più layout rotti su mobile. 
     */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 2rem;
-    text-align: left;
     
     max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Titoli delle colonne (Opzionale, se usi h3/h4 nel footer) */
-.footer-box h3 {
-    font-weight: 600;
-    margin-bottom: 1rem;
-    opacity: 0.8;
-}
+
 
 /* Link Footer */
 .f-links {
@@ -616,6 +610,18 @@ body.menu-open {
     align-self: center;     /* il testo si espande per allineare le colonne */
 }
 
+#deborah-text, #fra-text {
+    display: grid;
+    grid-template-rows: auto auto auto 1fr; 
+    /* immagine | testo flessibile | bottone */
+    width: 100%;
+    height: 100%;
+}
+
+#deborah-text p, #fra-text p {
+    align-self: center;
+}
+
 #deborah-text h2, #fra-text h2 {
     margin-bottom: 0;
 }
@@ -626,14 +632,11 @@ body.menu-open {
 
 #deborah-text img, #fra-text img {
     object-position: center;
-    align-self: center;
+    justify-self: center;
     margin-bottom: 0; 
 }
 
-#deb-pt {
-    object-position: center;
-    align-self: center;
-}
+
 
 /* --- Tipografia (Intestazioni) --- */
 /* Raggruppa tutte le intestazioni all'interno dei box */
