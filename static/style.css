@@ -728,7 +728,7 @@ h2 {
 
 
 
-img {
+.img-high, .img-wide, .img-wider {
     width: 100%;
     height: auto;
     object-position: center;
