@@ -1239,6 +1239,9 @@ h2 {
         text-align: center; /* Centra il testo all'interno del pulsante allungato */
     }
 
+    .maps-btn {
+        width: 70%;
+    }
     /* POP-UP*/
     .popup-content {
         max-width: 70%;
