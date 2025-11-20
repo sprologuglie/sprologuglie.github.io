@@ -726,18 +726,12 @@ h2 {
     object-fit: cover;
 }
 
-.img-high {  
-    aspect-ratio: 9 / 12;
-    object-fit: cover;  
-    max-width: min(240px, 100%);
-    margin-bottom: 20px;
-}
+
 
 img {
     width: 100%;
     height: auto;
     object-position: center;
-    margin-bottom: 20px;
     align-self: center;
 }
 
@@ -745,7 +739,11 @@ img {
     aspect-ratio: 9 / 12;
     object-fit: cover;  
     max-width: min(240px, 100%);
-    margin-bottom: 20px;
+}
+
+.img-wide, .img-wider {
+    display: block;
+    margin: 0 auto;
 }
 
 .img-wide { 
@@ -1212,10 +1210,7 @@ img {
         margin-right: auto;
     }
 
-    .img-wide, .img-wider {
-        display: block;
-        margin: 0 auto;
-    }
+
      
 
 
