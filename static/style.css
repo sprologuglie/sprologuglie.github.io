@@ -10,7 +10,8 @@
     --color-dropdown-border: rgba(255, 255, 255, 0.2);
 
     /* Sfondi Trasparenti */
-    --bg-blur-card: #f0f0f01b; /* Sfondo semi-trasparente per le card */
+    --bg-blur-card: #f0f0f02c;
+    --bg-blur-btn: #f0f0f05a; 
 
     /* Ombre */
     --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -529,7 +530,7 @@ body.menu-open {
 
     /* Sfondo e Effetti (Blur/Shadow) */
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     box-shadow: var(--shadow);
     
     /* Transizioni per l'Hover */
@@ -655,7 +656,9 @@ h2 {
     letter-spacing: 0.05rem;
 }
 
-
+.sub {
+    margin-top: 0;
+}
 
 /* --- Stili Icone e Liste --- */
 .icon-list {
@@ -1021,19 +1024,18 @@ h2 {
     font-weight: 500;
     
     /* Sfondo e Effetti */
-    background-color: var(--bg-blur-card);
-    backdrop-filter: blur(15px);
+    background-color: var(--bg-blur-btn);
+    backdrop-filter: blur(30px);
     color: var(--color-text-dark);
-    
-    /* Centratura e Margini */
-    margin: 10px 5px; /* Raggruppa margin-top (10px) e centratura orizzontale (auto) */
-    width: 80%;
-    /* Transizioni */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    
-    /* Nota: Le righe originali `margin: 10px 20px;` e `margin: 0 auto;` 
-       sono state consolidate in `margin: 10px auto;` per centrarli. 
-       Il selettore `.maps-btn { margin-top: 10px; }` era ridondante. */
+}
+
+.whatsapp-btn {
+        margin: 10px auto;
+}
+
+.maps-btn {
+        margin: 10px 5px;
 }
 
 /* --- Effetto Hover Pulsanti --- */
