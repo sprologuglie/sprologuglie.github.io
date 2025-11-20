@@ -501,10 +501,10 @@ body.menu-open {
     display: grid;
     /* Usa la notazione breve per 'repeat' */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 2em;
+    gap: 1em;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 /* --- Stili Generali per Card/Box (Base) --- */
@@ -515,7 +515,7 @@ body.menu-open {
 .contact-location,
 .contact-container {
     /* Box Model e Layout */
-    padding: 25px;
+    padding: 10px;
     border-radius: 15px;
     box-sizing: border-box; /* Essenziale per l'uniformità dei padding */
 
@@ -1257,14 +1257,6 @@ h2 {
 
      
 
-
-    .top-title,
-    .toggle-container,
-    .main-content,
-    .column-flex {
-        padding: 15px !important; /* riduce overflow */
-        overflow-x: hidden;
-    }
 
     
     /* pagina contatti*/
