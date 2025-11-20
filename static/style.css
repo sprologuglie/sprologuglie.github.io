@@ -68,10 +68,7 @@ button, a {
     font-size: 1.15rem;
 }
 
-img {
-    width: 100%;
-    height: auto;
-}
+
 
 /* Nasconde inizialmente tutte le card che devono apparire con l'animazione */
 .reveal-item {
@@ -733,6 +730,10 @@ h2 {
     aspect-ratio: 9 / 12;
     object-fit: cover;  
     max-width: min(240px, 100%);
+    margin-bottom: 20px;
+}
+
+img {
     width: 100%;
     height: auto;
     object-position: center;
@@ -740,25 +741,23 @@ h2 {
     align-self: center;
 }
 
+.img-high {  
+    aspect-ratio: 9 / 12;
+    object-fit: cover;  
+    max-width: min(240px, 100%);
+    margin-bottom: 20px;
+}
+
 .img-wide { 
     aspect-ratio: 12 / 9;
     object-fit: cover;
     max-width: min(420px, 100%);
-    width: 100%;
-    height: auto;
-    object-position: center;
-    margin: auto;
-    align-self: center;
 }
+
 .img-wider {  
     aspect-ratio: 5 / 2;
     object-fit: cover;  
     max-width: min(1000px, 100%);
-    width: 100%;
-    height: auto;
-    object-position: center;
-    margin: auto;
-    align-self: center;
 }
 
 
@@ -1203,8 +1202,9 @@ h2 {
 /* === MEDIA QUERY: Mobile/Tablet (max-width: 000px) === */
 @media (max-width: 800px) {
     
+
     .img-high {
-        max-width: 100%;
+        max-width: 60%;
         height: auto;
         width: auto; /* lascia fare al browser */
         object-fit: contain;
@@ -1213,10 +1213,11 @@ h2 {
     }
 
     .img-wide, .img-wider {
-        width: 100%;
-        height: auto;
-        margin: auto;
+        display: block;
+        margin: 0 auto;
     }
+     
+
 
     .top-title,
     .toggle-container,
@@ -1321,11 +1322,20 @@ h2 {
         gap: 0rem;
         margin: auto; /* Mantiene un po' di aria tra i blocchi impilati */
     }
+
+    .footer-column {
+        margin-bottom: 1rem;
+    }
+
+    .footer-column p {
+        margin: 0 auto;
+    }
+
     
     /* Manteniamo la tua personalizzazione per l'ultima riga */
     .footer-last {
         font-size: 0.8rem;
-        margin-top: 10px; /* Un po' di aria extra sopra i credits */
+        margin-top: 1rem; /* Un po' di aria extra sopra i credits */
         opacity: 0.7; /* Lo rende visivamente meno pesante */
     }
 
