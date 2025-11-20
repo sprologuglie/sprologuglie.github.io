@@ -67,6 +67,11 @@ button, a {
     font-size: 1.15rem;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
 /* Nasconde inizialmente tutte le card che devono apparire con l'animazione */
 .reveal-item {
     opacity: 0;
@@ -562,40 +567,55 @@ body.menu-open {
     justify-self: center;
 }
 
+.mille {
+    max-width: 1000px;
+    align-self: center;
+    justify-self: center;
+}
+
+.valutazione-container {
+    width: 100%;
+}
+
 .contenitore-icona-testo {
-  display: flex; /* Abilita il layout flessibile */
-  align-items: center;
-  margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 2rem 1fr; /* Due colonne della stessa larghezza */
+    grid-auto-rows: auto;
+
+    column-gap: 1.25rem;              /* Spazio verticale tra le righe */
+    width: 100%;
+    text-align: left;
+
 }
-
-.icona {
-    margin-right: 10px;
-    text-align: center;
-}
-
-.icona i {
-    font-size: clamp(20px, 6vw, 40px);
-}
-
-
 .testo-descrizione {
-  /* Permetti al testo di occupare lo spazio rimanente */
-  flex-grow: 1; 
+    margin-bottom: 1rem;
 }
+
+
+
+
+
 
 
 
 
 
 .column-flex {
-    display: grid; 
-    grid-template-columns: auto;
-    justify-items: center; /* Centra il contenuto verticalmente all'interno del box allungato */
-    height: 100%
+    display: grid;
+    grid-template-rows: auto auto 1fr auto; 
+    /* immagine | testo flessibile | bottone */
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.column-flex img {
+    justify-self: center;   /* centra solo l'immagine */
 }
 
 .column-flex p {
-    flex-grow: 1;
+    align-self: center;     /* il testo si espande per allineare le colonne */
 }
 
 #deborah-text h2, #fra-text h2 {
@@ -609,17 +629,12 @@ body.menu-open {
 #deborah-text img, #fra-text img {
     object-position: center;
     align-self: center;
-    max-width: 220px;
-    width: 100%;
-    height: auto;
-
     margin-bottom: 0; 
 }
 
 #deb-pt {
     object-position: center;
     align-self: center;
-    max-width: 220px;
 }
 
 /* --- Tipografia (Intestazioni) --- */
@@ -647,6 +662,12 @@ h2 {
     font-size: 1.4rem; /* Dimensione delle icone nelle liste (es. contatti) */
 }
 
+.servizi-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .servizi-top i {
     font-size: 2rem;
     margin-right: 20px;
@@ -656,7 +677,7 @@ h2 {
 .presentazione {
     display: grid;
     /* Grid 100px (logo) | Auto (testo) | 100px (logo) */
-    grid-template-columns: 200px auto 200px;
+    grid-template-columns: 1fr 2.4fr 1fr;
     width: 100%; /* Già coperto da .top-container/main-container max-width se usato lì */
     margin: 0 auto; 
     align-items: center; /* Centra verticalmente gli elementi nella riga */
@@ -702,23 +723,39 @@ h2 {
 
 .toggle-container img, .top-container img, .main-content img {
     border-radius: 10px;
-    margin-bottom: 20px;
     object-fit: cover;
 }
 
-.toggle-container img, .main-content img {    
-    max-width: min(220px, 100%);
+.img-high {  
+    aspect-ratio: 9 / 12;
+    object-fit: cover;  
+    max-width: min(240px, 100%);
     width: 100%;
     height: auto;
     object-position: center;
+    margin-bottom: 20px;
+    align-self: center;
 }
 
-.top-title img {
-    max-width: min(220px, 100%);
+.img-wide { 
+    aspect-ratio: 12 / 9;
+    object-fit: cover;
+    max-width: min(420px, 100%);
     width: 100%;
     height: auto;
-
     object-position: center;
+    margin: auto;
+    align-self: center;
+}
+.img-wider {  
+    aspect-ratio: 5 / 2;
+    object-fit: cover;  
+    max-width: min(1000px, 100%);
+    width: 100%;
+    height: auto;
+    object-position: center;
+    margin: auto;
+    align-self: center;
 }
 
 
@@ -779,11 +816,11 @@ h2 {
     transform: translateY(-5px);
 }
 
-#fra {
+#pacchetti-text {
     order: 2;
 }
 
-#fra-text {
+#pacchetti-img {
     order: 1;
 }
 
@@ -989,8 +1026,8 @@ h2 {
     color: var(--color-text-dark);
     
     /* Centratura e Margini */
-    margin: 10px auto; /* Raggruppa margin-top (10px) e centratura orizzontale (auto) */
-    
+    margin: 10px 5px; /* Raggruppa margin-top (10px) e centratura orizzontale (auto) */
+    width: 80%;
     /* Transizioni */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     
@@ -1162,7 +1199,7 @@ h2 {
 }
 
 /* === MEDIA QUERY: Mobile/Tablet (max-width: 000px) === */
-@media (max-width: 900px) {
+@media (max-width: 800px) {
     
     img {
         max-width: 100%;
@@ -1189,6 +1226,7 @@ h2 {
         display: flex; /* Passa da grid a flex */
         flex-direction: column; /* Forza gli elementi a impilarsi verticalmente */
         width: 100%; /* Occupa l'intera larghezza disponibile */
+        align-items: center;
     }
     
     /* Regola il margine sui pulsanti per impilamento */
@@ -1297,10 +1335,10 @@ h2 {
         width: 100%;
     }
 
-    #fra {
+    #pacchetti-text {
         order: 1;
     }
-    #fra-text {
+    #pacchetti-img {
         order: 2;
     }
 
@@ -1308,7 +1346,9 @@ h2 {
         max-width: 80%;
     }
 
-
+    .top-title h1 i {
+        display: none;
+    }
     
 }
 
