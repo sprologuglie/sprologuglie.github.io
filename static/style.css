@@ -97,7 +97,7 @@ button, a {
     box-shadow: var(--shadow);
     border-radius: 12px;
     margin: 10px;
-    z-index: 100;
+    z-index: 1000;
 }
 .logo {
     height: 50px;
