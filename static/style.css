@@ -1203,13 +1203,19 @@ h2 {
 /* === MEDIA QUERY: Mobile/Tablet (max-width: 000px) === */
 @media (max-width: 800px) {
     
-    img {
+    .img-high {
         max-width: 100%;
         height: auto;
         width: auto; /* lascia fare al browser */
         object-fit: contain;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .img-wide, .img-wider {
+        width: 100%;
+        height: auto;
+        margin: auto;
     }
 
     .top-title,
@@ -1312,7 +1318,8 @@ h2 {
         /* Non serve grid-template-columns: 1fr, lo fa già l'auto-fit! */
         
         text-align: center; /* Mantiene il testo centrato su mobile */
-        gap: 1.5rem; /* Mantiene un po' di aria tra i blocchi impilati */
+        gap: 0rem;
+        margin: auto; /* Mantiene un po' di aria tra i blocchi impilati */
     }
     
     /* Manteniamo la tua personalizzazione per l'ultima riga */
