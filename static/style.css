@@ -660,6 +660,35 @@ h2 {
     margin-top: 0;
 }
 
+.doppio-titolo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.doppio-titolo h1, .doppio-titolo h2 {
+    margin-bottom: 0;
+}
+
+.doppio-titolo h3, .doppio-titolo h4 {
+    margin-top: 0;
+    margin-bottom: 2.25rem;
+}
+
+.doppio-titolo p {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+.servizi-top h2 {
+    margin: 0;
+}
+
+.servizi-top p {
+    margin: 0 auto;
+}
+
 /* --- Stili Icone e Liste --- */
 .icon-list {
     font-size: 1.4rem; /* Dimensione delle icone nelle liste (es. contatti) */
@@ -699,6 +728,13 @@ h2 {
     margin: 0 1.2rem;
 }
 
+#valutazione-home h2 {
+    margin-bottom: 1.25rem;
+}
+#vision h2, #ambiente h2, #team h2, #team-studio h2 {
+    margin-bottom: 2.15rem;
+}
+
 /* --- Stili Immagini/Loghi --- */
 .logo-home-small {
     width: 200px;
@@ -731,7 +767,7 @@ h2 {
 
 
 
-.img-high, .img-wide, .img-wider {
+.img-high, .img-wide, .img-wider, .img-wide-m {
     width: 100%;
     height: auto;
     object-position: center;
@@ -744,7 +780,7 @@ h2 {
     max-width: min(240px, 100%);
 }
 
-.img-wide, .img-wider {
+.img-wide, .img-wider, .img-wide-m {
     display: block;
     margin: 0 auto;
 }
@@ -759,6 +795,12 @@ h2 {
     aspect-ratio: 5 / 2;
     object-fit: cover;  
     max-width: min(1000px, 100%);
+}
+
+.img-wide-m {  
+    object-fit: cover;  
+    max-width: 100%;
+    height: auto;
 }
 
 
@@ -1007,10 +1049,6 @@ h2 {
 .whatsapp-contact {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* `justify-content: flex-start;` è lo stile predefinito per il grid. 
-       Rimosso per pulizia, a meno che non sia necessario un allineamento specifico. */
-    /* Sezione specifica per il margine superiore (era ripetuto) */
-    margin-top: 20px; 
 }
 
 /* --- Stili Pulsanti (Base e Sfondo) --- */
@@ -1213,6 +1251,9 @@ h2 {
         margin-right: auto;
     }
 
+    .img-wider {
+        aspect-ratio: 12 / 9;
+    }
 
      
 
