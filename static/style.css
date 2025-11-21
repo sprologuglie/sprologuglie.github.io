@@ -1028,7 +1028,7 @@ h2 {
 
 .popup-content {
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(5px); 
+    backdrop-filter: blur(20px); 
     color: var(--color-text-dark);
     padding: 30px;
     border-radius: 15px;
