@@ -1153,8 +1153,8 @@ h2 {
   background: #f1f1f1;
   border-radius: 18px;
   padding: 18px;
-  max-width: 320px;
-  min-width: 260px;
+  max-width: 300px;
+  min-width: 240px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.10);
   flex-shrink: 0;
   scroll-snap-align: start;
@@ -1225,7 +1225,7 @@ h2 {
 
 /* Contenitore animabile */
 .recensione-text-wrapper {
-  max-height: 4.5rem; /* circa 3 righe */
+  max-height: 4.2rem; /* circa 3 righe */
   overflow: hidden;
   transition: max-height 0.4s ease, opacity 0.3s ease;
   opacity: 1;
@@ -1438,6 +1438,16 @@ h2 {
 
     .top-title h1 i {
         display: none;
+    }
+
+    .google-style {
+    min-width: 180px;   /* card più compatte */
+    max-width: 240px;
+    padding: 14px;      /* padding leggermente ridotto */
+    }
+
+    .recensione-text-wrapper.expanded {
+    max-height: 600px;
     }
     
 }
