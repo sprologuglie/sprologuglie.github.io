@@ -281,67 +281,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Aggiungi queste righe al tuo file JavaScript esistente:
+ 
 
-    // Durata in millisecondi tra una slide e l'altra (es. 5 secondi)
-    const AUTO_SCROLL_DELAY = 10000; 
+    const cards = document.querySelectorAll(".google-style");
 
-    // Funzione che gestisce lo scorrimento
-    function autoScroll() {
-        // Stessa logica del nextBtn: incrementa l'indice e aggiorna il carosello
-        currentIndex = (currentIndex + 1) % recensioni.length; 
-        updateCarousel();
+  cards.forEach(card => {
+    const wrapper = card.querySelector(".recensione-text-wrapper");
+    const text = card.querySelector(".recensione-text");
+    const btn = card.querySelector(".leggi");
+
+    // Misura altezza totale del testo
+    const fullHeight = text.scrollHeight;
+
+    // Altezza chiusa (3 righe circa)
+    const collapsedHeight = wrapper.clientHeight;
+
+    // Mostra pulsante solo se serve
+    if (fullHeight <= collapsedHeight + 5) {
+      btn.style.display = "none";
     }
 
-    // Avvia il timer. autoScroll verrà chiamato ogni 5 secondi.
-    let scrollInterval = setInterval(autoScroll, AUTO_SCROLL_DELAY);
-        // Seleziona l'elemento CORRETTO per il movimento (il tuo .recensioni-container)
-        const wrapper = document.querySelector('.recensioni-container'); 
-    // Seleziona il contenitore principale del carosello
-    const carosello = document.querySelector('.carosello-recensioni');
-
-    // 1. All'ingresso del mouse (mouseover), ferma lo scorrimento
-    carosello.addEventListener('mouseover', () => {
-        clearInterval(scrollInterval); // Interrompe il timer
+    // Toggle apertura
+    btn.addEventListener("click", () => {
+      const expanded = wrapper.classList.toggle("expanded");
+      wrapper.style.maxHeight = expanded ? fullHeight + "px" : collapsedHeight + "px";
+      btn.textContent = expanded ? "Leggi di meno" : "Leggi di più";
     });
+  });
 
-    // 2. All'uscita del mouse (mouseout), riavvia lo scorrimento
-    carosello.addEventListener('mouseout', () => {
-        // Ri-avvia il timer, assegnandolo nuovamente alla variabile 'scrollInterval'
-        scrollInterval = setInterval(autoScroll, AUTO_SCROLL_DELAY);
-    });
-
-    // Seleziona i pulsanti che erano mancanti
-    const nextBtn = document.querySelector('.next-btn');
-    const prevBtn = document.querySelector('.prev-btn');
-
-    // Seleziona le recensioni
-    const recensioni = document.querySelectorAll('.recensione'); 
-
-    // Continua la logica come avevi fatto:
-    let currentIndex = 0;
-
-    function updateCarousel() {
-        // Calcola di quanto spostare il wrapper. 
-        // Spostamento = - (indice corrente * 100%)
-        const offset = currentIndex * 100; 
-        
-        // Applica la trasformazione CSS
-        wrapper.style.transform = `translateX(-${offset}%)`;
-    }
-
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % recensioni.length; 
-        updateCarousel();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        // Gestione del loop per tornare all'ultima recensione
-        currentIndex = (currentIndex - 1 + recensioni.length) % recensioni.length; 
-        updateCarousel();
-    });
-
-    // Inizializzazione
-    updateCarousel();    
 // CHIUSURA FINALE CORRETTA dell'evento DOMContentLoaded
 });

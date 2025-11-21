@@ -61,7 +61,7 @@ button, a {
 }
 
 .just {
-    text-align: justify;
+    text-align: left;
 }
 
 .p {
@@ -515,7 +515,7 @@ body.menu-open {
 .contact-location,
 .contact-container {
     /* Box Model e Layout */
-    padding: 10px;
+    padding: 40px;
     border-radius: 15px;
     box-sizing: border-box; /* Essenziale per l'uniformità dei padding */
 
@@ -809,7 +809,7 @@ h2 {
   font-size: 1rem; 
   line-height: 1.6; 
   color: var(--color-text-dark); 
-  text-align: justify;
+  text-align: left;
   font-weight: 400; 
 }
 
@@ -913,121 +913,6 @@ h2 {
     overflow: hidden;
 }
 
-
-/* === CAROSELLO RECENSIONI STYLES === */
-
-/* --- Card Base (Recensione e Stelle) --- */
-/* Raggruppa gli stili comuni di blur, background, colore e border-radius */
-.recensione-text, 
-.stars,
-.carosello-recensioni {
-    /* Sfondo e Effetti (Blur/Shadow) */
-    background-color: var(--bg-blur-card);
-    backdrop-filter: blur(15px); /* Mantengo 15px qui per recensione e stelle,
-                                     ma lo riduco a 3px nel selettore specifico del carosello
-                                     se si riferisce al contenitore principale */
-    color: var(--color-text-dark);
-    border-radius: 15px; /* Applica a .recensione-text e .stars */
-}
-
-/* --- Contenitore Principale del Carosello (Viewport) --- */
-.carosello-recensioni {
-    position: relative; /* Necessario per posizionare i bottoni in modo assoluto */
-    /* Modifica specifica per il carosello, usa 3px come nell'originale */
-    backdrop-filter: blur(3px); 
-}
-
-.recensioni-title {
-    text-align: center;
-}
-
-/* --- Elementi della Recensione (Card Singola) --- */
-.recensione-text {
-    width: 600px; /* Larghezza fissa della card */
-    margin: 10px auto; /* Margine sopra/sotto e centrato */
-    padding: 15px;
-}
-
-/* Il selettore .recensione-text { margin: auto; } era ridondante/conflittuale
-   con .recensione-text, .stars { margin: 10px auto; }. È stato rimosso. */
-
-/* --- Stelle (Raggruppamento specifico) --- */
-.stars {
-    width: 200px;
-    padding: 10px;
-    margin: 10px auto; /* Centra anche le stelle se non sono già centrate da .recensione */
-}
-
-/* --- Layout del Singolo Slide --- */
-.recensione {
-    flex-shrink: 0;
-    width: 98%; /* Dimensione dello slide all'interno del viewport */
-    padding: 1%;
-    text-align: center;
-    
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra il contenuto (testo/stelle) verticalmente */
-}
-
-/* --- Wrapper di Movimento (Animazione) --- */
-.recensioni-container {
-    display: flex; 
-    transition: transform 0.5s ease-out;
-}
-
-/* --- Viewport (Area visibile) --- */
-.recensioni-viewport {
-    position: relative;
-    overflow: hidden; /* Nasconde gli slide non attivi */
-    align-self: center; 
-}
-
-/* --- Margini Generali (da verificare l'uso nel contesto) --- */
-.margin {
-    margin: 0 15px; /* Mantengo per eventuali usi specifici */
-}
-
-/* --- Controlli (Bottoni Navigazione) --- */
-.prev-btn, 
-.next-btn {
-    position: absolute;
-    top: 50%;
-    /* * Correzione: `transform: translateY(-20%)` non è il centro. 
-     * Se vuoi centrare, usa `transform: translateY(-50%)`.
-     * Ho modificato l'hover per riflettere il centro.
-     */
-    transform: translateY(-50%); 
-    z-index: 10;
-    
-    background: none;
-    border: none;
-    font-size: 2.5rem;
-    
-    /* Il margin-bottom sembra strano qui, l'ho rimosso per pulizia */
-    /* margin-bottom: 10px; */
-    
-    transition: transform 0.3s ease;
-}
-
-/* Posizionamento specifico dei bottoni */
-.prev-btn {
-    left: 10px;
-}
-
-.next-btn {
-    right: 10px;
-}
-
-/* --- Effetto Hover Bottoni --- */
-.prev-btn:hover, 
-.next-btn:hover {
-    cursor: pointer;
-    /* * Modifica l'hover basandoti sul centro (-50%) 
-     * Sposta leggermente verso l'alto e ingrandisci.
-     */
-    transform: translateY(-60%) scale(1.1); 
-}
 
 
 
@@ -1212,6 +1097,157 @@ h2 {
 .popup-cta-btn:hover {
     background-color: #c2b8b0; /* Un tono più scuro */
     
+}
+
+/* --- CAROSELLO RECENSIONI TOUCH --- */
+
+.recensioni-title h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--color-text-dark);
+}
+
+/* Viewport scrollabile */
+.recensioni-viewport {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+}
+
+.recensioni-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+/* Container interno */
+.recensioni-container {
+  display: flex;
+  gap: 20px;
+  padding: 10px;
+  
+}
+
+/* --- AVATAR CON INIZIALE (GOOGLE STYLE) --- */
+
+.recensione-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Colori diversi come fa Google */
+.avatar-M { background: #4285F4; }
+.avatar-D { background: #EA4335; }
+.avatar-F { background: #FBBC05; }
+.avatar-G { background: #34A853; }
+
+/* --- CARD STILE GOOGLE --- */
+
+.google-style {
+  background: #f1f1f1;
+  border-radius: 18px;
+  padding: 18px;
+  max-width: 320px;
+  min-width: 260px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER RECENSIONE */
+.recensione-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  position: relative;
+}
+
+/* INFO NOME + DATA */
+.recensione-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.recensione-nome {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.recensione-data {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0;
+}
+
+/* LOGO GOOGLE */
+.google-logo {
+  width: 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* STELLE */
+.stars-line {
+    text-align: left;
+  font-size: 1rem;
+  color: #f5c344;
+  margin-bottom: 10px;
+}
+
+.verified {
+  color: #1a73e8;
+  font-weight: bold;
+}
+
+/* TESTO */
+.recensione-text {
+  color: #333;
+  line-height: 1.45;
+  font-size: 0.92rem;
+  margin-bottom: 12px;
+  text-align: left;
+  margin: 0;
+}
+
+
+
+/* Contenitore animabile */
+.recensione-text-wrapper {
+  max-height: 4.5rem; /* circa 3 righe */
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 1;
+}
+
+.recensione-text-wrapper.expanded {
+  max-height: 500px; /* spazio sufficiente per aprirsi */
+  opacity: 1;
+}
+
+
+
+.leggi {
+  font-size: 0.85rem;
+  color: #777;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.google-logo {
+  width: 22px;
+  height: 22px;
 }
 
 
