@@ -93,7 +93,7 @@ button, a {
     align-items: center;
     padding: 15px 40px;
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     box-shadow: var(--shadow);
     border-radius: 12px;
     margin: 10px;
@@ -380,8 +380,8 @@ body.menu-open {
     /* Stile base "Flottante" */
     padding: 10px; /* Padding più arioso */
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px); /* Supporto Safari */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Supporto Safari */
     border-radius: 15px;
     margin: 10px; /* Un po' più di respiro */
     
@@ -521,7 +521,7 @@ body.menu-open {
 
     /* Sfondo e Effetti (Blur/Shadow) */
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     box-shadow: var(--shadow);
     
     /* Transizioni per l'Hover */
@@ -573,14 +573,19 @@ body.menu-open {
     display: grid;
     grid-template-columns: 2rem 1fr; /* Due colonne della stessa larghezza */
     grid-auto-rows: auto;
-
     column-gap: 1.25rem;              /* Spazio verticale tra le righe */
     width: 100%;
     text-align: left;
+    align-items: center;
+    margin-bottom: 0.75rem;
 
 }
 .testo-descrizione {
-    margin-bottom: 1rem;
+    align-self: center;
+}
+
+.testo-descrizione h5 {
+    margin: 0;
 }
 
 
@@ -671,7 +676,7 @@ h2 {
     margin-bottom: 0;
 }
 
-.doppio-titolo h3, .doppio-titolo h4 {
+.doppio-titolo h3, .doppio-titolo h4, .doppio-titolo h5 {
     margin-top: 0;
     margin-bottom: 2.25rem;
 }
@@ -735,9 +740,13 @@ h2 {
     margin-bottom: 2.15rem;
 }
 
+#valutazione-titolo h4 {
+    font-style: oblique;
+}
+
 /* --- Stili Immagini/Loghi --- */
 .logo-home-small {
-    width: 200px;
+    width: 240px;
     align-self: center; /* Centra verticalmente il logo all'interno della cella */
 }
 
@@ -753,6 +762,8 @@ h2 {
     color: var(--color-text-dark);
     transition: transform 0.3s ease; /* Lascia la transizione anche se manca l'hover */
 }
+
+
 /* Toggle Container Specifics */
 .toggle-container {
     cursor: pointer;
@@ -1028,7 +1039,7 @@ h2 {
 
 .popup-content {
     background-color: var(--bg-blur-card);
-    backdrop-filter: blur(20px); 
+    backdrop-filter: blur(12px); 
     color: var(--color-text-dark);
     padding: 30px;
     border-radius: 15px;
