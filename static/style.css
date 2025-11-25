@@ -516,7 +516,8 @@ body.menu-open {
 .toggle-container,
 .main-content,
 .contact-location,
-.contact-container {
+.contact-container,
+.servizi-title {
     /* Box Model e Layout */
     padding: 40px;
     border-radius: 15px;
@@ -647,7 +648,15 @@ body.menu-open {
     margin-bottom: 0; 
 }
 
+.servizi-title {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
+.servizi-title h2 {
+    margin: 0 auto;
+    text-align: left;
+}
 
 /* --- Tipografia (Intestazioni) --- */
 /* Raggruppa tutte le intestazioni all'interno dei box */
@@ -682,11 +691,11 @@ h4, h5, h6 {
 }
 
 
-.doppio-titolo h1, .doppio-titolo h2 {
+.doppio-titolo h1, .doppio-titolo h2, .doppio-titolo h3 {
     margin-bottom: 0;
 }
 
-.doppio-titolo h3, .doppio-titolo h4, .doppio-titolo h5 {
+.doppio-titolo h4, .doppio-titolo h5 {
     margin-top: 0;
     margin-bottom: 2.25rem;
 }
@@ -827,7 +836,8 @@ h4, h5, h6 {
 
 .img-wide-m {  
     object-fit: cover;  
-    max-width: 100%;
+    width: 90%;
+    max-width: 600px;
     height: auto;
 }
 
@@ -1310,6 +1320,16 @@ h4, h5, h6 {
     .presentazione {
         display: block;
     }
+
+    .servizi-title {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .servizi-title h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
 }
 
 /* === MEDIA QUERY: Mobile/Tablet (max-width: 000px) === */
@@ -1497,6 +1517,8 @@ h4, h5, h6 {
     .recensione-text-wrapper.expanded {
     max-height: 600px;
     }
+
+
     
 }
 
