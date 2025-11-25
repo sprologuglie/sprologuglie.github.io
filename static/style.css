@@ -1234,6 +1234,7 @@ h4, h5, h6 {
   font-size: 0.8rem;
   color: #777;
   margin: 0;
+  text-align: left;
 }
 
 /* LOGO GOOGLE */
