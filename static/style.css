@@ -1328,7 +1328,6 @@ h4, h5, h6 {
 
     .servizi-title h2 {
     margin-bottom: 1rem;
-    text-align: center;
 }
 }
 
@@ -1459,6 +1458,7 @@ h4, h5, h6 {
         
         text-align: center; /* Mantiene il testo centrato su mobile */
         gap: 0rem;
+        margin-top: 0.8rem;
         margin: auto; /* Mantiene un po' di aria tra i blocchi impilati */
     }
 
@@ -1518,7 +1518,9 @@ h4, h5, h6 {
     max-height: 600px;
     }
 
-
+    #ambiente h2, #team h2 {
+        text-align: left;
+    }
     
 }
 
