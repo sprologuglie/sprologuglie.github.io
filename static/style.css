@@ -416,7 +416,7 @@ body.menu-open {
     gap: 2rem;
     
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 1rem auto 0;
 }
 
 
