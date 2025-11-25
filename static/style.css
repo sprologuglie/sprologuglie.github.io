@@ -206,7 +206,7 @@ button, a {
     position: fixed;
     top: 0;
     right: 0; /* Ancorato a destra */
-    width: 280px;
+    width: 350px;
     height: 85%; /* Considera usare 100vh se vuoi coprire tutto */
     margin: 10px; /* Margine esterno */
     padding: 60px 20px 20px 20px; /* Padding accorpato */
@@ -339,6 +339,12 @@ button, a {
     background-color: rgba(0,0,0,0.05); /* Feedback visuale leggero */
     transform: translateX(5px); /* Spostamento laterale invece che verticale per i sub-link */
     box-shadow: none;
+}
+
+.menu-back {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 15px;
+    border-bottom: 1px solid var(--color-dropdown-hover);
 }
 
 /* --- STILI SOCIAL --- */
