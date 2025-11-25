@@ -32,6 +32,7 @@ html, body {
     
     line-height: 1.65;
     scroll-behavior: smooth;
+    
 }
 
 body {
@@ -557,6 +558,7 @@ body.menu-open {
 /* ---  VALUTAZIONE --- */
 .valutazione {
     max-width: 750px;
+    width: 100%;
     align-self: center;
     justify-self: center;
 }
@@ -590,7 +592,7 @@ body.menu-open {
     margin: 0;
 }
 
-#servizi {
+#servizi, #perche {
     padding: 15px;
 }
 
@@ -657,6 +659,7 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2, h3 {
     font-family: "Collier";
     font-weight: 700;
+    margin-top: 5px;
 }
 
 h4, h5, h6 {
@@ -760,7 +763,7 @@ h4, h5, h6 {
 
 /* --- Stili Immagini/Loghi --- */
 .logo-home-small {
-    width: 240px;
+    width: 90%;
     align-self: center; /* Centra verticalmente il logo all'interno della cella */
 }
 
@@ -819,7 +822,7 @@ h4, h5, h6 {
 .img-wider {  
     aspect-ratio: 5 / 2;
     object-fit: cover;  
-    max-width: min(1000px, 100%);
+    max-width: min(750px, 100%);
 }
 
 .img-wide-m {  
@@ -1299,6 +1302,16 @@ h4, h5, h6 {
     
 }
 
+@media(max-width: 1200px) {
+    .logo-home-small{
+        display: none;
+    }
+
+    .presentazione {
+        display: block;
+    }
+}
+
 /* === MEDIA QUERY: Mobile/Tablet (max-width: 000px) === */
 @media (max-width: 800px) {
     
@@ -1313,10 +1326,20 @@ h4, h5, h6 {
     }
 
     .img-wider {
-        aspect-ratio: 12 / 9;
+        aspect-ratio: 12 / 7;
     }
 
-     
+    .media-shrink {
+        margin: 0;
+    }
+
+    .media-shrink h3 {
+        margin-bottom: 0;
+    }
+
+    #perche {
+        font-size: 0.8rem;
+    }
 
 
     
