@@ -950,6 +950,50 @@ h4, h5, h6 {
     overflow: hidden;
 }
 
+/* Carosello verticale a card - versione UNA card alla volta */
+#il-nostro-studio {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.carousel-vertical {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  margin: 10px auto;
+  max-width: 750px;
+}
+
+.carousel-vertical::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 16px;
+  padding: 0 12px; /* per mostrare un piccolo margine laterale */
+}
+
+.carousel-card {
+  flex: 0 0 calc(100% - 24px); 
+  max-width: calc(100% - 24px);
+  background: var(--bg-card);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  scroll-snap-align: center; /* card centrata */
+  border: 2px solid var(--color-secondary); /* oppure var(--c-light) se vuoi */
+  backdrop-filter: blur(2px);
+}
+
+.carousel-card img {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 
 
 
