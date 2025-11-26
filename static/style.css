@@ -78,7 +78,7 @@ button, a {
     opacity: 0;
     transform: translateY(30px); /* Leggero spostamento verso il basso */
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-    transition-delay: 0.1s; /* Leggero ritardo per creare un effetto a cascata */
+     /* Leggero ritardo per creare un effetto a cascata */
 }
 
 /* Stato finale: Visibile */
