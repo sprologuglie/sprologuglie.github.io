@@ -343,8 +343,9 @@ button, a {
 
 .menu-back {
     background-color: rgba(255, 255, 255, 0.1) !important;
-    border-radius: 15px;
-    border-bottom: 1px solid var(--color-dropdown-hover);
+    font-weight: 500 !important;
+    font-size: 1.1rem !important;
+        padding: 8px !important;
 }
 
 /* --- STILI SOCIAL --- */
@@ -521,7 +522,7 @@ body.menu-open {
 .top-title,
 .toggle-container,
 .main-content,
-.contact-location,
+ 
 .contact-container,
 .servizi-title {
     /* Box Model e Layout */
@@ -570,11 +571,7 @@ body.menu-open {
     justify-self: center;
 }
 
-.mille {
-    max-width: 1000px;
-    align-self: center;
-    justify-self: center;
-}
+
 
 .valutazione-container {
     width: 100%;
@@ -719,10 +716,7 @@ h4, h5, h6 {
     margin: 0 auto;
 }
 
-/* --- Stili Icone e Liste --- */
-.icon-list {
-    font-size: 1.4rem; /* Dimensione delle icone nelle liste (es. contatti) */
-}
+
 
 .servizi-top {
     display: flex;
@@ -758,17 +752,7 @@ h4, h5, h6 {
     margin: 0 1.2rem;
 }
 
-#valutazione-home h3 {
-    font-style: italic;
-}
 
-#valutazione-home i {
-    font-size: 1.8rem;
-}
-
-#valutazione-home h5 {
-    font-size: 0.9rem;
-}
 
 #vision h2, #ambiente h2, #team h2, #il-nostro-studio h2 {
     margin-bottom: 2.15rem;
@@ -964,17 +948,7 @@ h4, h5, h6 {
 
 /* === CONTATTI PAGE STYLES === */
 
-/* --- Contenitori Principali --- */
-/* (Nota: Alcune proprietà di base come padding, border-radius e box-shadow
-   sono probabilmente ereditate dal blocco "Stili generali per le box/card"
-   che abbiamo ottimizzato in precedenza. Qui definiamo solo le specifiche di layout.) */
-.contact-location, 
-.contact-container {
-    max-width: 90%;
-    /* Raggruppa margini e centratura */
-    margin: 20px auto 0; /* (Top 20px, Auto orizzontale, Bottom 0) */
-    padding: 10px;
-}
+
 
 /* --- Layout Contatti Whatsapp (Grid) --- */
 .whatsapp-contact {
@@ -1315,7 +1289,7 @@ h4, h5, h6 {
         height: 100%;
     }
 
-    .contact-location, .contact-container {
+    .contact-container {
     max-width: 1000px;
     }
     
@@ -1370,7 +1344,7 @@ h4, h5, h6 {
     }
 
     #perche {
-        font-size: 0.8rem;
+        display: none;
     }
 
 
@@ -1502,9 +1476,6 @@ h4, h5, h6 {
         display: block;
     }
 
-    #logo-home-big {
-        width: 100%;
-    }
 
     #pacchetti-text {
         order: 1;
