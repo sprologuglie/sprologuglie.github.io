@@ -1252,6 +1252,7 @@ h4, h5, h6 {
   font-weight: 700;
   font-size: 0.95rem;
   margin: 0;
+  text-align: left;
 }
 
 .recensione-data {
@@ -1561,7 +1562,9 @@ h4, h5, h6 {
     
 }
 
-/* --- Carosello responsive per le 3 card del metodo Therapyou --- */
+/* --- Carosello responsive per le 3 card del metodo Therapyou --- 
+
+
 @media (max-width: 900px) {
   .sub-container {
     display: flex;
@@ -1589,7 +1592,7 @@ h4, h5, h6 {
 
     }
 }
-
+---------*/
 
 @media (max-width: 430px) {
     
