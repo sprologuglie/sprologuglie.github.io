@@ -664,7 +664,13 @@ body.menu-open {
 
 .servizi-title h2 {
     margin: 0 auto;
-    text-align: left;
+    text-align: center;
+}
+
+.servizi-title a {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 55px auto 35px;
 }
 
 /* --- Tipografia (Intestazioni) --- */
@@ -1021,6 +1027,7 @@ h4, h5, h6 {
     backdrop-filter: blur(30px);
     color: var(--color-text-dark);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: var(--shadow);
 }
 
 .whatsapp-btn {
@@ -1556,6 +1563,11 @@ h4, h5, h6 {
 
     #contatti h2, #contatti p {
         text-align: left;
+    }
+
+    .servizi-title a {
+         margin: 30px auto 20px;
+         font-size: 0.9rem;
     }
     
 }
