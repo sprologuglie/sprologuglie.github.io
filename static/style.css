@@ -1565,6 +1565,10 @@ h4, h5, h6 {
         text-align: left;
     }
 
+    .servizi-title h2 {
+        text-align: left;
+    }
+
     .servizi-title a {
          margin: 30px auto 20px;
          font-size: 0.9rem !important;
