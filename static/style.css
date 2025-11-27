@@ -1567,7 +1567,7 @@ h4, h5, h6 {
 
     .servizi-title a {
          margin: 30px auto 20px;
-         font-size: 0.9rem;
+         font-size: 0.9rem !important;
     }
     
 }
