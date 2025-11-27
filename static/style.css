@@ -1560,10 +1560,20 @@ h4, h5, h6 {
     
 }
 
-/* --- Carosello responsive per le 3 card del metodo Therapyou --- 
+ 
 
 
 @media (max-width: 900px) {
+
+  .main-container, .top-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+    }
+
+    /* --- Carosello responsive per le 3 card del metodo Therapyou ---
+
   .sub-container {
     display: flex;
     overflow-x: auto;
@@ -1583,14 +1593,9 @@ h4, h5, h6 {
 
   }
 
-  .main-container, .top-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-    }
+    ---------*/
 }
----------*/
+
 
 @media (max-width: 430px) {
     
