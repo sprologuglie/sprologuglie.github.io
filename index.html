@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guglielmo Sproloquio — Philosophy of Science Researcher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-name">Guglielmo Sproloquio</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <!-- Hamburger — visibile solo su mobile -->
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      aria-label="Apri menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+  </nav>
+
+  
+  <!-- ── MENU MOBILE OVERLAY ───────────────────────────────────── -->
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+  
+  
+    <!-- Pulsante chiudi -->
+    <button class="menu-close" id="menu-close" aria-label="Chiudi menu">
+      <span></span><span></span>
+    </button>
+  
+    <!-- Link principali -->
+    <nav class="menu-nav" aria-label="Menu principale">
+      <a href="#about" class="menu-link">
+        <span class="menu-link-text">About</span>
+      </a>
+      <a href="#research" class="menu-link">
+        <span class="menu-link-text">Research</span>
+      </a>
+      <a href="#projects" class="menu-link">
+        <span class="menu-link-text">GitHub Projects</span>
+      </a>
+      <a href="#publications" class="menu-link">
+        <span class="menu-link-text">Publications</span>
+      </a>
+      <a href="#contact" class="menu-link">
+        <span class="menu-link-text">Contact</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-text fade-in">
+      <p class="hero-eyebrow">Philosophy of Science · Turin, Italy</p>
+      <h1 class="hero-name">Guglielmo Sproloquio</h1>
+      <p class="hero-desc">
+        I study how the philosophy of science community produces and organizes knowledge
+        using bibliometric and statistical methods to ask empirical questions about epistemic practice.
+      </p>
+      <div class="hero-links">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="https://github.com/sprologuglie" target="_blank" class="btn btn-outline">GitHub →</a>
+      </div>
+    </div>
+
+    <div class="hero-visual fade-in" style="transition-delay: 0.2s">
+
+      <div class="hero-photo-wrapper">
+        <img src="profile_picture.jpg" class="hero-photo">
+        <span class="hero-photo-caption">This is me on a cool cliff</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header fade-in">
+      <span class="section-num">01</span>
+      <h2 class="section-title">About</h2>
+      <span class="section-line"></span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>
+          I am a researcher in philosophy of science at the University of Turin. My work sits at the intersection of
+          analytic philosophy and empirical research methods.
+        </p>
+        <p>
+          My main interest is understanding how the philosophy of science community
+          works as an epistemic community: how knowledge circulates, how diversity
+          shapes intellectual outcomes, and how the field has evolved over time.
+          I approach these questions with the tools of bibliometrics and
+          computational social science.
+        </p>
+        <p>
+          Alongside my research I work on data analysis projects to continue experimenting an learing new things.
+        </p>
+      </div>
+      <div class="about-meta fade-in" style="transition-delay:0.15s">
+        <!--<div class="meta-block">
+          <p class="meta-label">Position</p>
+          <p class="meta-value">PhD Researcher</p>
+        </div> -->
+        <div class="meta-block">
+          <p class="meta-label">Institution</p>
+          <p class="meta-value">University of Turin</p>
+        </div>
+        <div class="meta-block">
+          <p class="meta-label">Based in</p>
+          <p class="meta-value">Turin, Italy</p>
+        </div>
+        <div class="meta-block">
+          <p class="meta-label">Languages</p>
+          <p class="meta-value">Italian, English</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section id="research">
+    <div class="inner">
+      <div class="section-header fade-in">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Research</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="research-grid">
+        <div class="research-item fade-in">
+          <p class="research-num">INT. 01</p>
+          <h3 class="research-title">Scientometrics &amp; Bibliometrics</h3>
+          <p class="research-desc">
+            Quantitative study of the philosophy of science literature:
+            citation patterns, intellectual structure, and the dynamics
+            of academic influence over time.
+          </p>
+        </div>
+        <div class="research-item fade-in" style="transition-delay:0.1s">
+          <p class="research-num">INT. 02</p>
+          <h3 class="research-title">Epistemic Networks &amp; Diversity</h3>
+          <p class="research-desc">
+            How does team diversity affect the epistemic output of research groups?
+            Investigating the diversity thesis in philosophy of science through
+            empirical and bibliometric evidence.
+          </p>
+        </div>
+        <div class="research-item fade-in" style="transition-delay:0.2s">
+          <p class="research-num">INT. 03</p>
+          <h3 class="research-title">Agent-Based Modeling</h3>
+          <p class="research-desc">
+            Formal models of epistemic communities: extending
+            classic results an building new models to explore how
+            social structure shapes collective inquiry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header fade-in">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Github Projects</h2>
+      <span class="section-line"></span>
+    </div>
+    <div class="projects-list">
+      <a href="https://github.com/sprologuglie/Interactive-Epistemic-ABM-Zollman-Using-Mesa"
+         target="_blank" class="project-item fade-in">
+        <div>
+          <p class="project-lang">Python · Jupyter Notebook</p>
+          <p class="project-name">Interactive Epistemic ABM (Zollman)</p>
+          <p class="project-desc">
+            Replication and extension of classic epistemic network models — Zollman (2010),
+            Rosenstock et al. (2017), Frey &amp; Šešelja — with an interactive Mesa dashboard
+            for parameter exploration.
+          </p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </a>
+      <a href="https://github.com/sprologuglie/Air-Quality-and-EU-2030-OpenAQ"
+         target="_blank" class="project-item fade-in" style="transition-delay:0.1s">
+        <div>
+          <p class="project-lang">Python · Jupyter Notebook</p>
+          <p class="project-name">Air Quality &amp; EU 2030 Targets</p>
+          <p class="project-desc">
+            A reproducible data pipeline analyzing four major EU-regulated pollutants
+            (NO₂, O₃, PM₁₀, PM₂.₅) using OpenAQ data, benchmarked against
+            current and incoming EU standards.
+          </p>
+        </div>
+        <span class="project-arrow">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-header fade-in">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Publications</h2>
+      <span class="section-line"></span>
+    </div>
+    <p class="publications-note fade-in">
+      Publications forthcoming. Work in progress available upon request.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="inner">
+      <div class="section-header fade-in">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Contact</h2>
+        <span class="section-line"></span>
+      </div>
+      <div class="contact-grid">
+        <p class="contact-text fade-in">
+          I'm always happy to hear from fellow researchers, potential collaborators,
+          or anyone curious about my work. Feel free to reach out by email or
+          find me on GitHub.
+        </p>
+        <div class="contact-links fade-in" style="transition-delay:0.15s">
+          <a href="mailto:guglielmosproloquio@gmail.com" class="contact-link">
+            <span class="contact-link-icon">✉</span>
+            <div>
+              <span class="contact-link-label">Email</span>
+              <span>guglielmosproloquio@gmail.com</span>
+              <span>guglielmo.sproloquio@edu.unito.it</span>
+            </div>
+          </a>
+          <a href="https://github.com/sprologuglie" target="_blank" class="contact-link">
+            <span class="contact-link-icon">⌥</span>
+            <div>
+              <span class="contact-link-label">GitHub</span>
+              <span>github.com/sprologuglie</span>
+            </div>
+          </a>
+          <a href="https://orcid.org/0009-0004-9468-0330" class="contact-link">
+            <span class="contact-link-icon">◎</span>
+            <div>
+              <span class="contact-link-label">ORCID</span>
+              <span>https://orcid.org/0009-0004-9468-0330</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">© 2026 Guglielmo Sproloquio</span>
+    <span class="footer-city">Turin, Italy</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
